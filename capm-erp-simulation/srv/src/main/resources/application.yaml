@@ -1,0 +1,19 @@
+---
+spring:
+  config.activate.on-profile: default
+cds:
+  datasource:
+    auto-config.enabled: false
+
+solace:
+  hostUrl: "tcps://mr-connection-qhgik3f2ezp.messaging.solace.cloud:55443"
+  vpnName: "montrealbroker-10-1"
+  userName: "solace-cloud-client"
+  password: "3cp5luj5jrcu9776rrlt0dos20"
+  reconnectionAttempts: "20"
+  connectionRetriesPerHost: "5"
+  salesOrderTopic: "sap.com/salesorder/{verb}/V1/{salesOrg}/{distributionChannel}/{division}/{customerId}"
+  businessPartnerTopic: "sap.com/businesspartner/{verb}/V1/{businessPartnerType}/{partnerId}"
+  notificationTopic: "sap.com/notification/{verb}/V1/{type}/{plant}/{notificationId}"
+  materialMasterTopic: "sap.com/material/{verb}/V1/{materialClass}/{industrySector}/{materialType}/{materialNumber}/{maintenanceStatusGroup}/{maintenanceStatusMaterial}/{deletionIndicator}"
+  chartOfAccountsTopic: "sap.com/chartofaccounts/{verb}/V1"
