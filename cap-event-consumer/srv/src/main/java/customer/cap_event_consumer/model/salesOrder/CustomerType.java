@@ -1,4 +1,4 @@
-package customer.capm_erp_simulation.models.salesOrder;
+package customer.cap_event_consumer.model.salesOrder;
 
 import lombok.*;
 
@@ -6,7 +6,7 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-@NoArgsConstructor
+@Builder
 public class CustomerType {
     private String customerId;
     private String customerName;

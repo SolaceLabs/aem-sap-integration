@@ -1,4 +1,4 @@
-package customer.capm_erp_simulation.models.materialMaster;
+package customer.cap_event_consumer.model.materialMaster;
 
 import lombok.*;
 

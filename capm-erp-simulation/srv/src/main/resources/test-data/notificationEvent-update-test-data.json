@@ -1,0 +1,564 @@
+{
+  "notificationHeader": [
+    {
+      "notificationId": "NID001",
+      "type": "TypeX",
+      "creator": "John Doe",
+      "changer": "Alice Smith",
+      "changedate": "2023-08-10",
+      "plant": "Plant1",
+      "notificationItem": [
+        {
+          "item": "ItemX",
+          "defectClass": "ClassA",
+          "material": "MaterialA",
+          "puchaseOrg": "POrg1"
+        },
+        {
+          "item": "ItemY",
+          "defectClass": "ClassB",
+          "material": "MaterialB",
+          "puchaseOrg": "POrg2"
+        },
+        {
+          "item": "ItemZ",
+          "defectClass": "ClassC",
+          "material": "MaterialC",
+          "puchaseOrg": "POrg3"
+        }
+      ]
+    },
+    {
+      "notificationId": "NID002",
+      "type": "TypeY",
+      "creator": "Jane Doe",
+      "changer": "Bob Johnson",
+      "changedate": "2023-08-11",
+      "plant": "Plant2",
+      "notificationItem": [
+        {
+          "item": "ItemA",
+          "defectClass": "ClassD",
+          "material": "MaterialD",
+          "puchaseOrg": "POrg4"
+        },
+        {
+          "item": "ItemB",
+          "defectClass": "ClassE",
+          "material": "MaterialE",
+          "puchaseOrg": "POrg5"
+        },
+        {
+          "item": "ItemC",
+          "defectClass": "ClassF",
+          "material": "MaterialF",
+          "puchaseOrg": "POrg6"
+        }
+      ]
+    },
+    {
+      "notificationId": "NID003",
+      "type": "TypeZ",
+      "creator": "Mark Smith",
+      "changer": "Laura Lee",
+      "changedate": "2023-08-12",
+      "plant": "Plant3",
+      "notificationItem": [
+        {
+          "item": "ItemD",
+          "defectClass": "ClassG",
+          "material": "MaterialG",
+          "puchaseOrg": "POrg7"
+        },
+        {
+          "item": "ItemE",
+          "defectClass": "ClassH",
+          "material": "MaterialH",
+          "puchaseOrg": "POrg8"
+        },
+        {
+          "item": "ItemF",
+          "defectClass": "ClassI",
+          "material": "MaterialI",
+          "puchaseOrg": "POrg9"
+        }
+      ]
+    },
+    {
+      "notificationId": "NID004",
+      "type": "TypeA",
+      "creator": "Michael Johnson",
+      "changer": "Emily Brown",
+      "changedate": "2023-08-13",
+      "plant": "Plant4",
+      "notificationItem": [
+        {
+          "item": "ItemG",
+          "defectClass": "ClassJ",
+          "material": "MaterialJ",
+          "puchaseOrg": "POrg10"
+        },
+        {
+          "item": "ItemH",
+          "defectClass": "ClassK",
+          "material": "MaterialK",
+          "puchaseOrg": "POrg11"
+        },
+        {
+          "item": "ItemI",
+          "defectClass": "ClassL",
+          "material": "MaterialL",
+          "puchaseOrg": "POrg12"
+        }
+      ]
+    },
+    {
+      "notificationId": "NID005",
+      "type": "TypeB",
+      "creator": "William Turner",
+      "changer": "Oliver Harris",
+      "changedate": "2023-08-14",
+      "plant": "Plant5",
+      "notificationItem": [
+        {
+          "item": "ItemJ",
+          "defectClass": "ClassM",
+          "material": "MaterialM",
+          "puchaseOrg": "POrg13"
+        },
+        {
+          "item": "ItemK",
+          "defectClass": "ClassN",
+          "material": "MaterialN",
+          "puchaseOrg": "POrg14"
+        },
+        {
+          "item": "ItemL",
+          "defectClass": "ClassO",
+          "material": "MaterialO",
+          "puchaseOrg": "POrg15"
+        }
+      ]
+    },
+    {
+      "notificationId": "NID006",
+      "type": "TypeC",
+      "creator": "George Martin",
+      "changer": "Olivia Wilson",
+      "changedate": "2023-08-15",
+      "plant": "Plant6",
+      "notificationItem": [
+        {
+          "item": "ItemM",
+          "defectClass": "ClassP",
+          "material": "MaterialP",
+          "puchaseOrg": "POrg16"
+        },
+        {
+          "item": "ItemN",
+          "defectClass": "ClassQ",
+          "material": "MaterialQ",
+          "puchaseOrg": "POrg17"
+        },
+        {
+          "item": "ItemO",
+          "defectClass": "ClassR",
+          "material": "MaterialR",
+          "puchaseOrg": "POrg18"
+        }
+      ]
+    },
+    {
+      "notificationId": "NID007",
+      "type": "TypeD",
+      "creator": "Steven Johnson",
+      "changer": "Sophia Garcia",
+      "changedate": "2023-08-16",
+      "plant": "Plant7",
+      "notificationItem": [
+        {
+          "item": "ItemP",
+          "defectClass": "ClassS",
+          "material": "MaterialS",
+          "puchaseOrg": "POrg19"
+        },
+        {
+          "item": "ItemQ",
+          "defectClass": "ClassT",
+          "material": "MaterialT",
+          "puchaseOrg": "POrg20"
+        },
+        {
+          "item": "ItemR",
+          "defectClass": "ClassU",
+          "material": "MaterialU",
+          "puchaseOrg": "POrg21"
+        }
+      ]
+    },
+    {
+      "notificationId": "NID008",
+      "type": "TypeE",
+      "creator": "Emma Davis",
+      "changer": "Alexander Martinez",
+      "changedate": "2023-08-17",
+      "plant": "Plant8",
+      "notificationItem": [
+        {
+          "item": "ItemS",
+          "defectClass": "ClassV",
+          "material": "MaterialV",
+          "puchaseOrg": "POrg22"
+        },
+        {
+          "item": "ItemT",
+          "defectClass": "ClassW",
+          "material": "MaterialW",
+          "puchaseOrg": "POrg23"
+        },
+        {
+          "item": "ItemU",
+          "defectClass": "ClassX",
+          "material": "MaterialX",
+          "puchaseOrg": "POrg24"
+        }
+      ]
+    },
+    {
+      "notificationId": "NID009",
+      "type": "TypeF",
+      "creator": "Oliver Thompson",
+      "changer": "Sophie Allen",
+      "changedate": "2023-08-18",
+      "plant": "Plant9",
+      "notificationItem": [
+        {
+          "item": "ItemV",
+          "defectClass": "ClassY",
+          "material": "MaterialY",
+          "puchaseOrg": "POrg25"
+        },
+        {
+          "item": "ItemW",
+          "defectClass": "ClassZ",
+          "material": "MaterialZ",
+          "puchaseOrg": "POrg26"
+        },
+        {
+          "item": "ItemX",
+          "defectClass": "ClassA1",
+          "material": "MaterialA1",
+          "puchaseOrg": "POrg27"
+        }
+      ]
+    },
+    {
+      "notificationId": "NID010",
+      "type": "TypeG",
+      "creator": "Sophia Martin",
+      "changer": "Emma White",
+      "changedate": "2023-08-19",
+      "plant": "Plant10",
+      "notificationItem": [
+        {
+          "item": "ItemY",
+          "defectClass": "ClassB1",
+          "material": "MaterialB1",
+          "puchaseOrg": "POrg28"
+        },
+        {
+          "item": "ItemZ",
+          "defectClass": "ClassC1",
+          "material": "MaterialC1",
+          "puchaseOrg": "POrg29"
+        },
+        {
+          "item": "ItemA",
+          "defectClass": "ClassD1",
+          "material": "MaterialD1",
+          "puchaseOrg": "POrg30"
+        }
+      ]
+    },
+    {
+      "notificationId": "NID011",
+      "type": "TypeH",
+      "creator": "Michael Johnson",
+      "changer": "Sophia Garcia",
+      "changedate": "2023-08-20",
+      "plant": "Plant11",
+      "notificationItem": [
+        {
+          "item": "ItemB",
+          "defectClass": "ClassE1",
+          "material": "MaterialE1",
+          "puchaseOrg": "POrg31"
+        },
+        {
+          "item": "ItemC",
+          "defectClass": "ClassF1",
+          "material": "MaterialF1",
+          "puchaseOrg": "POrg32"
+        },
+        {
+          "item": "ItemD",
+          "defectClass": "ClassG1",
+          "material": "MaterialG1",
+          "puchaseOrg": "POrg33"
+        }
+      ]
+    },
+    {
+      "notificationId": "NID012",
+      "type": "TypeI",
+      "creator": "Emma Davis",
+      "changer": "Alexander Martinez",
+      "changedate": "2023-08-21",
+      "plant": "Plant12",
+      "notificationItem": [
+        {
+          "item": "ItemE",
+          "defectClass": "ClassH1",
+          "material": "MaterialH1",
+          "puchaseOrg": "POrg34"
+        },
+        {
+          "item": "ItemF",
+          "defectClass": "ClassI1",
+          "material": "MaterialI1",
+          "puchaseOrg": "POrg35"
+        },
+        {
+          "item": "ItemG",
+          "defectClass": "ClassJ1",
+          "material": "MaterialJ1",
+          "puchaseOrg": "POrg36"
+        }
+      ]
+    },
+    {
+      "notificationId": "NID013",
+      "type": "TypeJ",
+      "creator": "Oliver Thompson",
+      "changer": "Sophie Allen",
+      "changedate": "2023-08-22",
+      "plant": "Plant13",
+      "notificationItem": [
+        {
+          "item": "ItemH",
+          "defectClass": "ClassK1",
+          "material": "MaterialK1",
+          "puchaseOrg": "POrg37"
+        },
+        {
+          "item": "ItemI",
+          "defectClass": "ClassL1",
+          "material": "MaterialL1",
+          "puchaseOrg": "POrg38"
+        },
+        {
+          "item": "ItemJ",
+          "defectClass": "ClassM1",
+          "material": "MaterialM1",
+          "puchaseOrg": "POrg39"
+        }
+      ]
+    },
+    {
+      "notificationId": "NID014",
+      "type": "TypeK",
+      "creator": "Sophia Martin",
+      "changer": "Emma White",
+      "changedate": "2023-08-23",
+      "plant": "Plant14",
+      "notificationItem": [
+        {
+          "item": "ItemK",
+          "defectClass": "ClassN1",
+          "material": "MaterialN1",
+          "puchaseOrg": "POrg40"
+        },
+        {
+          "item": "ItemL",
+          "defectClass": "ClassO1",
+          "material": "MaterialO1",
+          "puchaseOrg": "POrg41"
+        },
+        {
+          "item": "ItemM",
+          "defectClass": "ClassP1",
+          "material": "MaterialP1",
+          "puchaseOrg": "POrg42"
+        }
+      ]
+    },
+    {
+      "notificationId": "NID015",
+      "type": "TypeL",
+      "creator": "Michael Johnson",
+      "changer": "Sophia Garcia",
+      "changedate": "2023-08-24",
+      "plant": "Plant15",
+      "notificationItem": [
+        {
+          "item": "ItemN",
+          "defectClass": "ClassQ1",
+          "material": "MaterialQ1",
+          "puchaseOrg": "POrg43"
+        },
+        {
+          "item": "ItemO",
+          "defectClass": "ClassR1",
+          "material": "MaterialR1",
+          "puchaseOrg": "POrg44"
+        },
+        {
+          "item": "ItemP",
+          "defectClass": "ClassS1",
+          "material": "MaterialS1",
+          "puchaseOrg": "POrg45"
+        }
+      ]
+    },
+    {
+      "notificationId": "NID016",
+      "type": "TypeM",
+      "creator": "Emma Davis",
+      "changer": "Alexander Martinez",
+      "changedate": "2023-08-25",
+      "plant": "Plant16",
+      "notificationItem": [
+        {
+          "item": "ItemQ",
+          "defectClass": "ClassT1",
+          "material": "MaterialT1",
+          "puchaseOrg": "POrg46"
+        },
+        {
+          "item": "ItemR",
+          "defectClass": "ClassU1",
+          "material": "MaterialU1",
+          "puchaseOrg": "POrg47"
+        },
+        {
+          "item": "ItemS",
+          "defectClass": "ClassV1",
+          "material": "MaterialV1",
+          "puchaseOrg": "POrg48"
+        }
+      ]
+    },
+    {
+      "notificationId": "NID017",
+      "type": "TypeN",
+      "creator": "Oliver Thompson",
+      "changer": "Sophie Allen",
+      "changedate": "2023-08-26",
+      "plant": "Plant17",
+      "notificationItem": [
+        {
+          "item": "ItemT",
+          "defectClass": "ClassW1",
+          "material": "MaterialW1",
+          "puchaseOrg": "POrg49"
+        },
+        {
+          "item": "ItemU",
+          "defectClass": "ClassX1",
+          "material": "MaterialX1",
+          "puchaseOrg": "POrg50"
+        },
+        {
+          "item": "ItemV",
+          "defectClass": "ClassY1",
+          "material": "MaterialY1",
+          "puchaseOrg": "POrg51"
+        }
+      ]
+    },
+    {
+      "notificationId": "NID018",
+      "type": "TypeO",
+      "creator": "Sophia Martin",
+      "changer": "Emma White",
+      "changedate": "2023-08-27",
+      "plant": "Plant18",
+      "notificationItem": [
+        {
+          "item": "ItemW",
+          "defectClass": "ClassZ1",
+          "material": "MaterialZ1",
+          "puchaseOrg": "POrg52"
+        },
+        {
+          "item": "ItemX",
+          "defectClass": "ClassA2",
+          "material": "MaterialA2",
+          "puchaseOrg": "POrg53"
+        },
+        {
+          "item": "ItemY",
+          "defectClass": "ClassB2",
+          "material": "MaterialB2",
+          "puchaseOrg": "POrg54"
+        }
+      ]
+    },
+    {
+      "notificationId": "NID019",
+      "type": "TypeP",
+      "creator": "Michael Johnson",
+      "changer": "Sophia Garcia",
+      "changedate": "2023-08-28",
+      "plant": "Plant19",
+      "notificationItem": [
+        {
+          "item": "ItemZ",
+          "defectClass": "ClassC2",
+          "material": "MaterialC2",
+          "puchaseOrg": "POrg55"
+        },
+        {
+          "item": "ItemA",
+          "defectClass": "ClassD2",
+          "material": "MaterialD2",
+          "puchaseOrg": "POrg56"
+        },
+        {
+          "item": "ItemB",
+          "defectClass": "ClassE2",
+          "material": "MaterialE2",
+          "puchaseOrg": "POrg57"
+        }
+      ]
+    },
+    {
+      "notificationId": "NID020",
+      "type": "TypeQ",
+      "creator": "Emma Davis",
+      "changer": "Alexander Martinez",
+      "changedate": "2023-08-29",
+      "plant": "Plant20",
+      "notificationItem": [
+        {
+          "item": "ItemC",
+          "defectClass": "ClassF2",
+          "material": "MaterialF2",
+          "puchaseOrg": "POrg58"
+        },
+        {
+          "item": "ItemD",
+          "defectClass": "ClassG2",
+          "material": "MaterialG2",
+          "puchaseOrg": "POrg59"
+        },
+        {
+          "item": "ItemE",
+          "defectClass": "ClassH2",
+          "material": "MaterialH2",
+          "puchaseOrg": "POrg60"
+        }
+      ]
+    }
+  ]
+}

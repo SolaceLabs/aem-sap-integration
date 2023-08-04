@@ -1,16 +1,15 @@
 package customer.capm_erp_simulation.models.salesOrder;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+
+import java.util.List;
 
 @Data
 @Getter
 @Setter
-@Builder
+@NoArgsConstructor
 public class SalesOrderType {
 
-    private OrderHeaderType orderHeader;
+    private List<OrderHeaderType> orderHeader;
 
 }

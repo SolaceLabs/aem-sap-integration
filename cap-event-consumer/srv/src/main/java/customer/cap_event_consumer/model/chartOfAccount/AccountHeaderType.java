@@ -1,4 +1,4 @@
-package customer.capm_erp_simulation.models.chartOfAccount;
+package customer.cap_event_consumer.model.chartOfAccount;
 
 import lombok.*;
 
@@ -8,7 +8,7 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-@NoArgsConstructor
+@Builder
 public class AccountHeaderType {
 
     private String chartOfAccounts;

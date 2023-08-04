@@ -1,4 +1,4 @@
-package customer.capm_erp_simulation.models.chartOfAccount;
+package customer.cap_event_consumer.model.chartOfAccount;
 
 import lombok.*;
 
@@ -6,7 +6,7 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-@NoArgsConstructor
+@Builder
 public class CompanyCodeDataType {
 
     private String companyCode;

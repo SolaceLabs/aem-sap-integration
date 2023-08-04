@@ -1,15 +1,14 @@
-package customer.capm_erp_simulation.models.salesOrder;
+package customer.cap_event_consumer.model.salesOrder;
 
 import lombok.*;
 
 import java.util.Date;
-import java.util.List;
 
 @Data
 @Getter
 @Setter
 @ToString
-@NoArgsConstructor
+@Builder
 public class OrderHeaderType {
 
     private String salesOrderNumber;
@@ -20,7 +19,7 @@ public class OrderHeaderType {
     private String salesOrg;
     private String distributionChannel;
     private String division;
-    private List<CustomerType> customer;
-    private List<OrderItemType> orderItem;
+    private CustomerType customer;
+    private OrderItemType orderItem;
 
 }

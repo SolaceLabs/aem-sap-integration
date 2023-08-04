@@ -1,4 +1,4 @@
-package customer.capm_erp_simulation.models.businessPartner;
+package customer.cap_event_consumer.model.businessPartner;
 
 import lombok.*;
 
@@ -10,6 +10,7 @@ import java.util.List;
 @Setter
 @ToString
 @NoArgsConstructor
+@AllArgsConstructor
 public class AdressLinkType {
 
     private String adressNumber;

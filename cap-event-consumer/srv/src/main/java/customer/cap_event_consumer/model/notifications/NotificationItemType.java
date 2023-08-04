@@ -1,4 +1,4 @@
-package customer.capm_erp_simulation.models.notifications;
+package customer.cap_event_consumer.model.notifications;
 
 import lombok.*;
 
@@ -8,7 +8,7 @@ import java.util.Date;
 @Getter
 @Setter
 @ToString
-@NoArgsConstructor
+@Builder
 public class NotificationItemType {
     private String item;
     private String defectClass;

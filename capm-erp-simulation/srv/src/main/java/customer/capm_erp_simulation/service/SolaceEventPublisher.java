@@ -11,9 +11,10 @@ import com.solace.messaging.publisher.OutboundMessageBuilder;
 import com.solace.messaging.publisher.PersistentMessagePublisher;
 import com.solace.messaging.resources.Topic;
 import customer.capm_erp_simulation.config.SolaceConfigProperties;
-import customer.capm_erp_simulation.models.businessPartner.BusinessPartnerType;
+import customer.capm_erp_simulation.models.businessPartner.BusinessPartner;
 import customer.capm_erp_simulation.models.chartOfAccount.AccountHeaderType;
-import customer.capm_erp_simulation.models.materialMaster.MaterialMasterType;
+import customer.capm_erp_simulation.models.materialMaster.MaterialCreate;
+import customer.capm_erp_simulation.models.materialMaster.MaterialUpdate;
 import customer.capm_erp_simulation.models.notifications.NotificationHeaderType;
 import customer.capm_erp_simulation.models.salesOrder.SalesOrderType;
 import lombok.extern.slf4j.Slf4j;
@@ -111,10 +112,10 @@ public class SolaceEventPublisher {
             String salesOrderCreateJson = Obj.writeValueAsString(salesOrderEvent);
             final OutboundMessage message = messageBuilder.build(salesOrderCreateJson);
             final Map<String, Object> params = new HashMap<>();
-            params.put("salesOrg", salesOrderEvent.getOrderHeader().getSalesOrg());
-            params.put("distributionChannel", salesOrderEvent.getOrderHeader().getDistributionChannel());
-            params.put("division", salesOrderEvent.getOrderHeader().getDivision());
-            params.put("customerId", salesOrderEvent.getOrderHeader().getCustomer().getCustomerId());
+            params.put("salesOrg", salesOrderEvent.getOrderHeader().get(0).getSalesOrg());
+            params.put("distributionChannel", salesOrderEvent.getOrderHeader().get(0).getDistributionChannel());
+            params.put("division", salesOrderEvent.getOrderHeader().get(0).getDivision());
+            params.put("customerId", salesOrderEvent.getOrderHeader().get(0).getCustomer().get(0).getCustomerId());
             params.put("verb", verb);
             String topicString = StringSubstitutor.replace(configProperties.getSalesOrderTopic(), params, "{", "}");
             publisher.publish(message, Topic.of(topicString));
@@ -124,14 +125,14 @@ public class SolaceEventPublisher {
         }
     }
 
-    public void publishBusinessPartnerEvent(final BusinessPartnerType businessPartnerEvent, final String verb) throws JsonProcessingException {
+    public void publishBusinessPartnerEvent(final BusinessPartner businessPartnerEvent, final String verb) throws JsonProcessingException {
         try {
             String businessPartnerEventJson = Obj.writeValueAsString(businessPartnerEvent);
             final OutboundMessage message = messageBuilder.build(businessPartnerEventJson);
             final Map<String, Object> params = new HashMap<>();
             params.put("verb", verb);
-            params.put("businessPartnerType", businessPartnerEvent.getBusinessPartnerType());
-            params.put("partnerId", businessPartnerEvent.getPartnerId());
+            params.put("businessPartnerType", businessPartnerEvent.getBusinessPartner().get(0).getBusinessPartnerType());
+            params.put("partnerId", businessPartnerEvent.getBusinessPartner().get(0).getPartnerId());
             String topicString = StringSubstitutor.replace(configProperties.getBusinessPartnerTopic(), params, "{", "}");
             publisher.publish(message, Topic.of(topicString));
             log.info("Published businessPartnerEvent event :{} on topic : {}", businessPartnerEventJson, topicString);
@@ -140,22 +141,43 @@ public class SolaceEventPublisher {
         }
     }
 
-    public void publishMaterialMasterEvents(final MaterialMasterType materialMasterEvent, final String verb) throws JsonProcessingException {
+    public void publishMaterialMasterCreateEvents(final MaterialCreate materialCreate, final String verb) throws JsonProcessingException {
         try {
-            String materialMasterEventJson = Obj.writeValueAsString(materialMasterEvent);
-            final OutboundMessage message = messageBuilder.build(materialMasterEventJson);
+            String materialCreateEventJson = Obj.writeValueAsString(materialCreate);
+            final OutboundMessage message = messageBuilder.build(materialCreateEventJson);
             final Map<String, Object> params = new HashMap<>();
             params.put("verb", verb);
-            params.put("materialClass", materialMasterEvent.getMaterialClass());
-            params.put("industrySector", materialMasterEvent.getIndustrySector());
-            params.put("materialType", materialMasterEvent.getMaterialType());
-            params.put("materialNumber", materialMasterEvent.getMaterialNumber());
-            params.put("maintenanceStatusGroup", materialMasterEvent.getMaintenanceStatusGroup());
-            params.put("maintenanceStatusMaterial", materialMasterEvent.getMaintenanceStatusMaterial());
-            params.put("deletionIndicator", materialMasterEvent.getDeletionIndicator());
+            params.put("materialClass", materialCreate.getMaterialClass());
+            params.put("industrySector", materialCreate.getIndustrySector());
+            params.put("materialType", materialCreate.getMaterialType());
+            params.put("materialNumber", materialCreate.getMaterialNumber());
+            params.put("maintenanceStatusGroup", materialCreate.getMaintenanceStatusGroup());
+            params.put("maintenanceStatusMaterial", materialCreate.getMaintenanceStatusMaterial());
+            params.put("deletionIndicator", materialCreate.getDeletionIndicator());
             String topicString = StringSubstitutor.replace(configProperties.getMaterialMasterTopic(), params, "{", "}");
             publisher.publish(message, Topic.of(topicString));
-            log.info("Published materialMasterEvent event :{} on topic : {}", materialMasterEventJson, topicString);
+            log.info("Published materialMasterCreateEvent event :{} on topic : {}", materialCreateEventJson, topicString);
+        } catch (final RuntimeException runtimeException) {
+            log.error("Error encountered while publishing event, exception :", runtimeException);
+        }
+    }
+
+    public void publishMaterialMasterUpdateEvents(final MaterialUpdate materialUpdate, final String verb) throws JsonProcessingException {
+        try {
+            String materialUpdateEventJson = Obj.writeValueAsString(materialUpdate);
+            final OutboundMessage message = messageBuilder.build(materialUpdateEventJson);
+            final Map<String, Object> params = new HashMap<>();
+            params.put("verb", verb);
+            params.put("materialClass", materialUpdate.getMaterialClass());
+            params.put("industrySector", materialUpdate.getIndustrySector());
+            params.put("materialType", materialUpdate.getMaterialType());
+            params.put("materialNumber", materialUpdate.getMaterialNumber());
+            params.put("maintenanceStatusGroup", materialUpdate.getMaintenanceStatusGroup());
+            params.put("maintenanceStatusMaterial", materialUpdate.getMaintenanceStatusMaterial());
+            params.put("deletionIndicator", materialUpdate.getDeletionIndicator());
+            String topicString = StringSubstitutor.replace(configProperties.getMaterialMasterTopic(), params, "{", "}");
+            publisher.publish(message, Topic.of(topicString));
+            log.info("Published materialMasterUpdateEvent event :{} on topic : {}", materialUpdateEventJson, topicString);
         } catch (final RuntimeException runtimeException) {
             log.error("Error encountered while publishing event, exception :", runtimeException);
         }

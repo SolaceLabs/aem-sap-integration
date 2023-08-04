@@ -2,7 +2,6 @@ package customer.capm_erp_simulation.models.businessPartner;
 
 import lombok.*;
 
-import java.util.Date;
 import java.util.List;
 
 @Data
@@ -10,11 +9,6 @@ import java.util.List;
 @Setter
 @ToString
 @NoArgsConstructor
-public class AdressLinkType {
-
-    private String adressNumber;
-    private Date dateFrom;
-    private List<AdressType> adress;
-
-
+public class BusinessPartner {
+    private List<BusinessPartnerType> businessPartner;
 }

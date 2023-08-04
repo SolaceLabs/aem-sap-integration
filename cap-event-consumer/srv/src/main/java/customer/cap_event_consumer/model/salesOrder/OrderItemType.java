@@ -1,4 +1,4 @@
-package customer.capm_erp_simulation.models.salesOrder;
+package customer.cap_event_consumer.model.salesOrder;
 
 import lombok.*;
 
@@ -8,7 +8,7 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-@NoArgsConstructor
+@Builder
 public class OrderItemType {
 
     private String item;

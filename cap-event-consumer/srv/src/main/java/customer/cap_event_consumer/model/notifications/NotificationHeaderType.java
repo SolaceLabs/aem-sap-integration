@@ -1,4 +1,4 @@
-package customer.capm_erp_simulation.models.notifications;
+package customer.cap_event_consumer.model.notifications;
 
 import lombok.*;
 
@@ -9,7 +9,7 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-@NoArgsConstructor
+@Builder
 public class NotificationHeaderType {
     private String notificationId;
     private String type;

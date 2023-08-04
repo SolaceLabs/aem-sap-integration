@@ -1,4 +1,4 @@
-package customer.capm_erp_simulation.models.businessPartner;
+package customer.cap_event_consumer.model.businessPartner;
 
 import lombok.*;
 
@@ -7,9 +7,8 @@ import lombok.*;
 @Setter
 @ToString
 @NoArgsConstructor
+@AllArgsConstructor
 public class AdressType {
-
-
     private String nation;
     private String city;
     private String street;

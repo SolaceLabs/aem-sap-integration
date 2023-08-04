@@ -1,4 +1,6 @@
 ---
+server:
+  port: 9002
 spring:
   config.activate.on-profile: default
 cds:

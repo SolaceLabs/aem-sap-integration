@@ -1,0 +1,286 @@
+[
+  {
+    "businessPartner": [
+      {
+        "partnerId": "BP1001",
+        "firstName": "John",
+        "lastName": "Doe",
+        "businessPartnerType": "Customer",
+        "adressLink": [
+          {
+            "adressNumber": "AD1001",
+            "dateFrom": "2023-08-04",
+            "adress": [
+              {
+                "nation": "USA",
+                "city": "New York",
+                "street": "Main Street",
+                "houseNumber": "123",
+                "postalCode": "10001",
+                "country": "United States"
+              },
+              {
+                "nation": "USA",
+                "city": "Los Angeles",
+                "street": "Broadway",
+                "houseNumber": "456",
+                "postalCode": "90001",
+                "country": "United States"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "businessPartner": [
+      {
+        "partnerId": "BP1002",
+        "firstName": "Jane",
+        "lastName": "Smith",
+        "businessPartnerType": "Supplier",
+        "adressLink": [
+          {
+            "adressNumber": "AD1002",
+            "dateFrom": "2023-08-04",
+            "adress": [
+              {
+                "nation": "Canada",
+                "city": "Toronto",
+                "street": "Oak Street",
+                "houseNumber": "456",
+                "postalCode": "M5J 2G8",
+                "country": "Canada"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "businessPartner": [
+      {
+        "partnerId": "BP1003",
+        "firstName": "Michael",
+        "lastName": "Johnson",
+        "businessPartnerType": "Customer",
+        "adressLink": [
+          {
+            "adressNumber": "AD1003",
+            "dateFrom": "2023-08-04",
+            "adress": [
+              {
+                "nation": "UK",
+                "city": "London",
+                "street": "High Street",
+                "houseNumber": "789",
+                "postalCode": "SW1A 1AA",
+                "country": "United Kingdom"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "businessPartner": [
+      {
+        "partnerId": "BP1004",
+        "firstName": "Emily",
+        "lastName": "Lee",
+        "businessPartnerType": "Customer",
+        "adressLink": [
+          {
+            "adressNumber": "AD1004",
+            "dateFrom": "2023-08-04",
+            "adress": [
+              {
+                "nation": "Australia",
+                "city": "Sydney",
+                "street": "George Street",
+                "houseNumber": "101",
+                "postalCode": "2000",
+                "country": "Australia"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "businessPartner": [
+      {
+        "partnerId": "BP1005",
+        "firstName": "David",
+        "lastName": "Brown",
+        "businessPartnerType": "Customer",
+        "adressLink": [
+          {
+            "adressNumber": "AD1005",
+            "dateFrom": "2023-08-08",
+            "adress": [
+              {
+                "nation": "Germany",
+                "city": "Berlin",
+                "street": "Kurfürstendamm",
+                "houseNumber": "22",
+                "postalCode": "10719",
+                "country": "Germany"
+              },
+              {
+                "nation": "Germany",
+                "city": "Munich",
+                "street": "Marienplatz",
+                "houseNumber": "33",
+                "postalCode": "80331",
+                "country": "Germany"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "businessPartner": [
+      {
+        "partnerId": "BP1006",
+        "firstName": "Sophia",
+        "lastName": "Chen",
+        "businessPartnerType": "Supplier",
+        "adressLink": [
+          {
+            "adressNumber": "AD1006",
+            "dateFrom": "2023-08-10",
+            "adress": [
+              {
+                "nation": "China",
+                "city": "Shanghai",
+                "street": "Nanjing Road",
+                "houseNumber": "66",
+                "postalCode": "200001",
+                "country": "China"
+              },
+              {
+                "nation": "China",
+                "city": "Beijing",
+                "street": "Forbidden City",
+                "houseNumber": "88",
+                "postalCode": "100004",
+                "country": "China"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "businessPartner": [
+      {
+        "partnerId": "BP1007",
+        "firstName": "Robert",
+        "lastName": "Taylor",
+        "businessPartnerType": "Customer",
+        "adressLink": [
+          {
+            "adressNumber": "AD1007",
+            "dateFrom": "2023-08-04",
+            "adress": [
+              {
+                "nation": "France",
+                "city": "Paris",
+                "street": "Champs-Élysées",
+                "houseNumber": "75",
+                "postalCode": "75008",
+                "country": "France"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "businessPartner": [
+      {
+        "partnerId": "BP1008",
+        "firstName": "Isabella",
+        "lastName": "Martinez",
+        "businessPartnerType": "Supplier",
+        "adressLink": [
+          {
+            "adressNumber": "AD1008",
+            "dateFrom": "2023-08-04",
+            "adress": [
+              {
+                "nation": "Spain",
+                "city": "Barcelona",
+                "street": "La Rambla",
+                "houseNumber": "100",
+                "postalCode": "08002",
+                "country": "Spain"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "businessPartner": [
+      {
+        "partnerId": "BP1009",
+        "firstName": "Alexander",
+        "lastName": "Wong",
+        "businessPartnerType": "Customer",
+        "adressLink": [
+          {
+            "adressNumber": "AD1009",
+            "dateFrom": "2023-08-04",
+            "adress": [
+              {
+                "nation": "Italy",
+                "city": "Rome",
+                "street": "Via del Corso",
+                "houseNumber": "55",
+                "postalCode": "00187",
+                "country": "Italy"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "businessPartner": [
+      {
+        "partnerId": "BP1010",
+        "firstName": "Olivia",
+        "lastName": "Nguyen",
+        "businessPartnerType": "Customer",
+        "adressLink": [
+          {
+            "adressNumber": "AD1010",
+            "dateFrom": "2023-08-04",
+            "adress": [
+              {
+                "nation": "Vietnam",
+                "city": "Ho Chi Minh City",
+                "street": "Nguyen Hue",
+                "houseNumber": "30",
+                "postalCode": "70000",
+                "country": "Vietnam"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
