@@ -86,7 +86,7 @@ public class ErpSimulator {
     protected void simulateSalesOrderUpdateEvents() throws JsonProcessingException {
         int randomIndex = random.nextInt(salesOrderUpdateTestDataList.size());
         SalesOrderType salesOrderCreate = salesOrderUpdateTestDataList.get(randomIndex);
-        solaceEventPublisher.publishSalesOrderEvent(salesOrderCreate, "update");
+        solaceEventPublisher.publishSalesOrderEvent(salesOrderCreate, "change");
     }
 
     @Scheduled(fixedDelay = 10000, initialDelay = 10000)
@@ -100,7 +100,7 @@ public class ErpSimulator {
     protected void simulateBusinessPartnerUpdateEvents() throws JsonProcessingException {
         int randomIndex = random.nextInt(businessPartnerUpdateTestDataList.size());
         BusinessPartner businessPartnerUpdateEvent = businessPartnerUpdateTestDataList.get(randomIndex);
-        solaceEventPublisher.publishBusinessPartnerEvent(businessPartnerUpdateEvent, "update");
+        solaceEventPublisher.publishBusinessPartnerEvent(businessPartnerUpdateEvent, "change");
     }
 
     @Scheduled(fixedDelay = 10000, initialDelay = 10000)
@@ -116,7 +116,7 @@ public class ErpSimulator {
         int randomIndex = random.nextInt(materialMasterUpdateTestDataList.getMaterial().length);
         MaterialUpdate[] materials = materialMasterUpdateTestDataList.getMaterial();
         final MaterialUpdate material = materials[randomIndex];
-        solaceEventPublisher.publishMaterialMasterUpdateEvents(material, "update");
+        solaceEventPublisher.publishMaterialMasterUpdateEvents(material, "change");
     }
 
     @Scheduled(fixedDelay = 10000, initialDelay = 10000)
@@ -130,7 +130,7 @@ public class ErpSimulator {
     protected void simulateChartOfAccountsUpdateEvents() throws JsonProcessingException {
         int randomIndex = random.nextInt(chartOfAccountsUpdateTestDataList.getAccountHeader().size());
         AccountHeaderType accountHeader = chartOfAccountsUpdateTestDataList.getAccountHeader().get(randomIndex);
-        solaceEventPublisher.publishChartOfAccountsEvents(accountHeader, "update");
+        solaceEventPublisher.publishChartOfAccountsEvents(accountHeader, "change");
     }
 
     @Scheduled(fixedDelay = 10000, initialDelay = 20000)
@@ -144,7 +144,7 @@ public class ErpSimulator {
     protected void simulateNotificationUpdateEvents() throws JsonProcessingException {
         int randomIndex = random.nextInt(notificationsUpdateTestDataList.getNotificationHeader().size());
         NotificationHeaderType notificationHeaderType = notificationsUpdateTestDataList.getNotificationHeader().get(randomIndex);
-        solaceEventPublisher.publishNotificationEvents(notificationHeaderType, "update");
+        solaceEventPublisher.publishNotificationEvents(notificationHeaderType, "change");
     }
 
     @EventListener
