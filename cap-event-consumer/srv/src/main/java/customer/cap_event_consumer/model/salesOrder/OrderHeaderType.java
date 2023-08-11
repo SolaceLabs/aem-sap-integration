@@ -3,12 +3,13 @@ package customer.cap_event_consumer.model.salesOrder;
 import lombok.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Getter
 @Setter
 @ToString
-@Builder
+@NoArgsConstructor
 public class OrderHeaderType {
 
     private String salesOrderNumber;
@@ -19,7 +20,7 @@ public class OrderHeaderType {
     private String salesOrg;
     private String distributionChannel;
     private String division;
-    private CustomerType customer;
-    private OrderItemType orderItem;
+    private List<CustomerType> customer;
+    private List<OrderItemType> orderItem;
 
 }

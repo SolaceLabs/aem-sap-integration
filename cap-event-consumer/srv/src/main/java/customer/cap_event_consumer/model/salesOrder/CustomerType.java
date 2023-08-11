@@ -6,7 +6,7 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-@Builder
+@NoArgsConstructor
 public class CustomerType {
     private String customerId;
     private String customerName;

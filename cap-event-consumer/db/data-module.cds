@@ -18,6 +18,7 @@ entity businessPartner {
 
 entity adressLink {
     key id              : UUID;
+        adressNumber    : String;
         dateFrom        : Date;
         address         : composition of many adress
                               on address.adressLink = $self;

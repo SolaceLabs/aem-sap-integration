@@ -9,7 +9,6 @@ import java.util.List;
 @Setter
 @ToString
 @NoArgsConstructor
-@AllArgsConstructor
 public class BusinessPartner {
     private List<BusinessPartnerType> businessPartner;
 }

@@ -3,10 +3,18 @@ server:
   port: 9001
 spring:
   config.activate.on-profile: default
-cds:
   datasource:
-    auto-config.enabled: false
-
+    url: jdbc:h2:mem:mydb
+    username: sa
+    password: password
+    driverClassName: org.h2.Driver
+  jpa:
+    spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
 solace:
   hostUrl: "tcps://mr-connection-qhgik3f2ezp.messaging.solace.cloud:55443"
   vpnName: "montrealbroker-10-1"

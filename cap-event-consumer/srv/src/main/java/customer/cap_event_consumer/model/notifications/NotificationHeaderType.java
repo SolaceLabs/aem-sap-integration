@@ -9,7 +9,7 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-@Builder
+@NoArgsConstructor
 public class NotificationHeaderType {
     private String notificationId;
     private String type;

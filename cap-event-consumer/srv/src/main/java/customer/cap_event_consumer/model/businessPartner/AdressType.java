@@ -7,8 +7,9 @@ import lombok.*;
 @Setter
 @ToString
 @NoArgsConstructor
-@AllArgsConstructor
 public class AdressType {
+
+
     private String nation;
     private String city;
     private String street;

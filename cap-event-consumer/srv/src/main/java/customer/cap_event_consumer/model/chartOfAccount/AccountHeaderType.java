@@ -8,7 +8,7 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-@Builder
+@NoArgsConstructor
 public class AccountHeaderType {
 
     private String chartOfAccounts;

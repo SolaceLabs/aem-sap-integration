@@ -10,7 +10,6 @@ import java.util.List;
 @Setter
 @ToString
 @NoArgsConstructor
-@AllArgsConstructor
 public class AdressLinkType {
 
     private String adressNumber;
