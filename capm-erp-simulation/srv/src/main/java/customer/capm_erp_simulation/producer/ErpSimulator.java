@@ -75,35 +75,35 @@ public class ErpSimulator {
 
     private Random random = new Random();
 
-    @Scheduled(fixedDelay = 10000, initialDelay = 10000)
+    @Scheduled(fixedDelay = 60000, initialDelay = 10000)
     protected void simulateSalesOrderCreateEvents() throws JsonProcessingException {
         int randomIndex = random.nextInt(salesOrderCreateTestDataList.size());
         SalesOrderType salesOrderCreate = salesOrderCreateTestDataList.get(randomIndex);
         solaceEventPublisher.publishSalesOrderEvent(salesOrderCreate, "create");
     }
 
-    @Scheduled(fixedDelay = 10000, initialDelay = 15000)
+    @Scheduled(fixedDelay = 60000, initialDelay = 15000)
     protected void simulateSalesOrderUpdateEvents() throws JsonProcessingException {
         int randomIndex = random.nextInt(salesOrderUpdateTestDataList.size());
         SalesOrderType salesOrderCreate = salesOrderUpdateTestDataList.get(randomIndex);
         solaceEventPublisher.publishSalesOrderEvent(salesOrderCreate, "change");
     }
 
-    @Scheduled(fixedDelay = 10000, initialDelay = 10000)
+    @Scheduled(fixedDelay = 60000, initialDelay = 10000)
     protected void simulateBusinessPartnerCreateEvents() throws JsonProcessingException {
         int randomIndex = random.nextInt(businessPartnerCreateTestDataList.size());
         BusinessPartner businessPartnerCreateEvent = businessPartnerCreateTestDataList.get(randomIndex);
         solaceEventPublisher.publishBusinessPartnerEvent(businessPartnerCreateEvent, "create");
     }
 
-    @Scheduled(fixedDelay = 10000, initialDelay = 15000)
+    @Scheduled(fixedDelay = 60000, initialDelay = 15000)
     protected void simulateBusinessPartnerUpdateEvents() throws JsonProcessingException {
         int randomIndex = random.nextInt(businessPartnerUpdateTestDataList.size());
         BusinessPartner businessPartnerUpdateEvent = businessPartnerUpdateTestDataList.get(randomIndex);
         solaceEventPublisher.publishBusinessPartnerEvent(businessPartnerUpdateEvent, "change");
     }
 
-    @Scheduled(fixedDelay = 10000, initialDelay = 10000)
+    @Scheduled(fixedDelay = 60000, initialDelay = 10000)
     protected void simulateMaterialMasterCreateEvents() throws JsonProcessingException {
         int randomIndex = random.nextInt(materialMasterCreateTestDataList.getMaterial().length);
         MaterialCreate[] materials = materialMasterCreateTestDataList.getMaterial();
@@ -111,7 +111,7 @@ public class ErpSimulator {
         solaceEventPublisher.publishMaterialMasterCreateEvents(material, "create");
     }
 
-    @Scheduled(fixedDelay = 10000, initialDelay = 15000)
+    @Scheduled(fixedDelay = 60000, initialDelay = 15000)
     protected void simulateMaterialMasterUpdateEvents() throws JsonProcessingException {
         int randomIndex = random.nextInt(materialMasterUpdateTestDataList.getMaterial().length);
         MaterialUpdate[] materials = materialMasterUpdateTestDataList.getMaterial();
@@ -119,28 +119,28 @@ public class ErpSimulator {
         solaceEventPublisher.publishMaterialMasterUpdateEvents(material, "change");
     }
 
-    @Scheduled(fixedDelay = 10000, initialDelay = 10000)
+    @Scheduled(fixedDelay = 60000, initialDelay = 10000)
     protected void simulateChartOfAccountsCreateEvents() throws JsonProcessingException {
         int randomIndex = random.nextInt(chartOfAccountsCreateTestDataList.getAccountHeader().size());
         AccountHeaderType accountHeader = chartOfAccountsCreateTestDataList.getAccountHeader().get(randomIndex);
         solaceEventPublisher.publishChartOfAccountsEvents(accountHeader, "create");
     }
 
-    @Scheduled(fixedDelay = 10000, initialDelay = 15000)
+    @Scheduled(fixedDelay = 60000, initialDelay = 15000)
     protected void simulateChartOfAccountsUpdateEvents() throws JsonProcessingException {
         int randomIndex = random.nextInt(chartOfAccountsUpdateTestDataList.getAccountHeader().size());
         AccountHeaderType accountHeader = chartOfAccountsUpdateTestDataList.getAccountHeader().get(randomIndex);
         solaceEventPublisher.publishChartOfAccountsEvents(accountHeader, "change");
     }
 
-    @Scheduled(fixedDelay = 10000, initialDelay = 20000)
+    @Scheduled(fixedDelay = 60000, initialDelay = 20000)
     protected void simulateNotificationCreateEvents() throws JsonProcessingException {
         int randomIndex = random.nextInt(notificationsCreateTestDataList.getNotificationHeader().size());
         NotificationHeaderType notificationHeaderType = notificationsCreateTestDataList.getNotificationHeader().get(randomIndex);
         solaceEventPublisher.publishNotificationEvents(notificationHeaderType, "create");
     }
 
-    @Scheduled(fixedDelay = 10000, initialDelay = 20000)
+    @Scheduled(fixedDelay = 60000, initialDelay = 20000)
     protected void simulateNotificationUpdateEvents() throws JsonProcessingException {
         int randomIndex = random.nextInt(notificationsUpdateTestDataList.getNotificationHeader().size());
         NotificationHeaderType notificationHeaderType = notificationsUpdateTestDataList.getNotificationHeader().get(randomIndex);

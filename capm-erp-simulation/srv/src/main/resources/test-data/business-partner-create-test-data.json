@@ -6,11 +6,11 @@
         "firstName": "John",
         "lastName": "Doe",
         "businessPartnerType": "Customer",
-        "adressLink": [
+        "addressLink": [
           {
-            "adressNumber": "AD1001",
+            "addressNumber": "AD1001",
             "dateFrom": "2023-08-04",
-            "adress": [
+            "address": [
               {
                 "nation": "USA",
                 "city": "New York",
@@ -32,11 +32,11 @@
         "firstName": "Jane",
         "lastName": "Smith",
         "businessPartnerType": "Supplier",
-        "adressLink": [
+        "addressLink": [
           {
-            "adressNumber": "AD1002",
+            "addressNumber": "AD1002",
             "dateFrom": "2023-08-04",
-            "adress": [
+            "address": [
               {
                 "nation": "Canada",
                 "city": "Toronto",
@@ -58,11 +58,11 @@
         "firstName": "Michael",
         "lastName": "Johnson",
         "businessPartnerType": "Customer",
-        "adressLink": [
+        "addressLink": [
           {
-            "adressNumber": "AD1003",
+            "addressNumber": "AD1003",
             "dateFrom": "2023-08-04",
-            "adress": [
+            "address": [
               {
                 "nation": "UK",
                 "city": "London",
@@ -84,11 +84,11 @@
         "firstName": "Emily",
         "lastName": "Lee",
         "businessPartnerType": "Customer",
-        "adressLink": [
+        "addressLink": [
           {
-            "adressNumber": "AD1004",
+            "addressNumber": "AD1004",
             "dateFrom": "2023-08-04",
-            "adress": [
+            "address": [
               {
                 "nation": "Australia",
                 "city": "Sydney",
@@ -110,11 +110,11 @@
         "firstName": "David",
         "lastName": "Brown",
         "businessPartnerType": "Customer",
-        "adressLink": [
+        "addressLink": [
           {
-            "adressNumber": "AD1005",
+            "addressNumber": "AD1005",
             "dateFrom": "2023-08-04",
-            "adress": [
+            "address": [
               {
                 "nation": "Germany",
                 "city": "Berlin",
@@ -136,11 +136,11 @@
         "firstName": "Sophia",
         "lastName": "Chen",
         "businessPartnerType": "Supplier",
-        "adressLink": [
+        "addressLink": [
           {
-            "adressNumber": "AD1006",
+            "addressNumber": "AD1006",
             "dateFrom": "2023-08-04",
-            "adress": [
+            "address": [
               {
                 "nation": "China",
                 "city": "Shanghai",
@@ -162,11 +162,11 @@
         "firstName": "Robert",
         "lastName": "Taylor",
         "businessPartnerType": "Customer",
-        "adressLink": [
+        "addressLink": [
           {
-            "adressNumber": "AD1007",
+            "addressNumber": "AD1007",
             "dateFrom": "2023-08-04",
-            "adress": [
+            "address": [
               {
                 "nation": "France",
                 "city": "Paris",
@@ -188,11 +188,11 @@
         "firstName": "Isabella",
         "lastName": "Martinez",
         "businessPartnerType": "Supplier",
-        "adressLink": [
+        "addressLink": [
           {
-            "adressNumber": "AD1008",
+            "addressNumber": "AD1008",
             "dateFrom": "2023-08-04",
-            "adress": [
+            "address": [
               {
                 "nation": "Spain",
                 "city": "Barcelona",
@@ -214,11 +214,11 @@
         "firstName": "Alexander",
         "lastName": "Wong",
         "businessPartnerType": "Customer",
-        "adressLink": [
+        "addressLink": [
           {
-            "adressNumber": "AD1009",
+            "addressNumber": "AD1009",
             "dateFrom": "2023-08-04",
-            "adress": [
+            "address": [
               {
                 "nation": "Italy",
                 "city": "Rome",
@@ -240,11 +240,11 @@
         "firstName": "Olivia",
         "lastName": "Nguyen",
         "businessPartnerType": "Customer",
-        "adressLink": [
+        "addressLink": [
           {
-            "adressNumber": "AD1010",
+            "addressNumber": "AD1010",
             "dateFrom": "2023-08-04",
-            "adress": [
+            "address": [
               {
                 "nation": "Vietnam",
                 "city": "Ho Chi Minh City",

@@ -189,6 +189,8 @@ public class SolaceEventPublisher {
             final OutboundMessage message = messageBuilder.build(chartOfAccountEventJson);
             final Map<String, Object> params = new HashMap<>();
             params.put("verb", verb);
+            params.put("chartOfAccounts", chartOfAccountEvent.getChartOfAccounts());
+            params.put("accountNumber", chartOfAccountEvent.getAccountNumber());
             String topicString = StringSubstitutor.replace(configProperties.getChartOfAccountsTopic(), params, "{", "}");
             publisher.publish(message, Topic.of(topicString));
             log.info("Published chartOfAccountEvent event :{} on topic : {}", chartOfAccountEvent, topicString);

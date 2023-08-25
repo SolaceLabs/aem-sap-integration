@@ -15,6 +15,6 @@ public class BusinessPartnerType {
     private String firstName;
     private String lastName;
     private String businessPartnerType;
-    private List<AdressLinkType> adressLink;
+    private List<AddressLinkType> addressLink;
 
 }
