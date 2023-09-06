@@ -8,7 +8,6 @@ applications:
 # Backend Service
 # -----------------------------------------------------------------------------------
 - name: capm-erp-simulation
-  random-route: true  # for development only
   path: capm-erp-simulation-exec.jar
   memory: 1G
   disk_quota: 512M
