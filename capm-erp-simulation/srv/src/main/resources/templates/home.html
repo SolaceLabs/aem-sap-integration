@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERP Simulator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .navbar {
+            background-color: #343a40;
+            padding: 1rem 0;
+        }
+
+        .navbar-brand img {
+            margin-right: 10px;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            margin-top: 20px;
+            padding: 20px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+        }
+
+        .slider {
+            margin-top: 10px;
+        }
+
+        .slider-value {
+            font-weight: bold;
+        }
+
+        .form-control {
+            margin-bottom: 10px; /* Adjust as needed */
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <div class="navbar-brand">
+            <img src="/images/solace-logo.png" alt="Solace" width="40" height="40" class="d-inline-block align-text-top">
+        </div>
+        <a class="navbar-brand mx-auto" href="#"><h3>ERP Simulator</h3></a>
+        <div class="navbar-brand">
+            <img src="/images/sap-logo.png" alt="SAP" width="40" height="40" class="d-inline-block align-text-top">
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <form class="row g-3" action="#" th:action="@{/connectToBroker}" th:object="${solaceConnectionParameters}"
+          method="post">
+        <div class="col-md-3 mb-3">
+            <input type="text" class="form-control" id="hostUrl" placeholder="Host URL" name="hostUrl"
+                   th:field="*{hostUrl}">
+            <span th:errors="*{hostUrl}"></span>
+        </div>
+        <div class="col-md-3 mb-3">
+            <input type="text" class="form-control" id="vpnName" placeholder="VPN Name" name="vpnName"
+                   th:field="*{vpnName}">
+            <span th:errors="*{vpnName}"></span>
+        </div>
+        <div class="col-md-3 mb-3">
+            <input type="text" class="form-control" id="userName" name="userName" placeholder="Username"
+                   th:field="*{userName}">
+            <span th:errors="*{userName}"></span>
+        </div>
+        <div class="col-md-3 mb-3">
+            <input type="text" class="form-control" id="password" name="password" placeholder="Password"
+                   th:field="*{password}">
+            <span th:errors="*{password}"></span>
+        </div>
+        <div class="col-md-3 offset-md-3">
+            <button type="submit" class="btn btn-primary">Connect to broker</button>
+        </div>
+    </form>
+</div>
+
+<div th:if="${brokerConnected == true }" class="container mt-5 alert alert-success mt-4">
+    <strong>Success!</strong> Broker connected successfully
+</div>
+<div th:if="${brokerConnected == false}" class="container mt-5 alert alert-danger mt-4">
+    <strong>Error!</strong> Broker connection failed
+</div>
+
+<div th:if="${brokerConnected == true && erpSimulatorSchedules != null}">
+    <div class="container mt-4">
+        <form class="bg-light p-4 rounded shadow" action="#" th:action="@{/simulateERPMessages}" method="post">
+            <div class="mb-3 row">
+                <label for="salesOrderCreateDuration" class="col-sm-4 col-form-label">Sales Order Create event
+                    frequency:</label>
+                <div class="col-sm-8 slider">
+                    <input type="range" class="form-range slider-input" id="salesOrderCreateDuration"
+                           name="salesOrderCreateDuration" min="0" max="60" step="1"
+                           th:value="${erpSimulatorSchedules.salesOrderCreateDuration}">
+                    <span id="salesOrderCreateDurationValue" class="slider-value">0</span> minute
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="salesOrderChangeDuration" class="col-sm-4 col-form-label">Sales Order Change event
+                    frequency:</label>
+                <div class="col-sm-8 slider">
+                    <input type="range" class="form-range slider-input" id="salesOrderChangeDuration"
+                           name="salesOrderChangeDuration"
+                           min="0" max="60" step="1" th:value="${erpSimulatorSchedules.salesOrderChangeDuration}">
+                    <span id="salesOrderChangeDurationValue" class="slider-value">0</span> minute
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="businessPartnerCreateDuration" class="col-sm-4 col-form-label"> Business Partner Create
+                    event frequency: </label>
+                <div class="col-sm-8 slider">
+                    <input type="range" class="form-range slider-input" id="businessPartnerCreateDuration"
+                           name="businessPartnerCreateDuration"
+                           min="0" max="60" step="1" th:value="${erpSimulatorSchedules.businessPartnerCreateDuration}">
+                    <span id="businessPartnerCreateDurationValue" class="slider-value">0</span> minute
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="businessPartnerChangeDuration" class="col-sm-4 col-form-label">Business Partner Change event
+                    frequency: </label>
+                <div class="col-sm-8 slider">
+                    <input type="range" class="form-range slider-input" id="businessPartnerChangeDuration"
+                           name="businessPartnerChangeDuration"
+                           min="0" max="60" step="1" th:value="${erpSimulatorSchedules.businessPartnerChangeDuration}">
+                    <span id="businessPartnerChangeDurationValue" class="slider-value">0</span> minute
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="materialMasterCreateDuration" class="col-sm-4 col-form-label"> Material Master Create event
+                    frequency: </label>
+                <div class="col-sm-8 slider">
+                    <input type="range" class="form-range slider-input" id="materialMasterCreateDuration"
+                           name="materialMasterCreateDuration"
+                           min="0" max="60" step="1" th:value="${erpSimulatorSchedules.materialMasterCreateDuration}">
+                    <span id="materialMasterCreateDurationValue" class="slider-value">0</span> minute
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="materialMasterChangeDuration" class="col-sm-4 col-form-label"> Material Master Change event
+                    frequency: </label>
+                <div class="col-sm-8 slider">
+                    <input type="range" class="form-range slider-input" id="materialMasterChangeDuration"
+                           name="materialMasterChangeDuration"
+                           min="0" max="60" step="1" th:value="${erpSimulatorSchedules.materialMasterChangeDuration}">
+                    <span id="materialMasterChangeDurationValue" class="slider-value">0</span> minute
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="chartOfAccountsCreateDuration" class="col-sm-4 col-form-label">Chart of Accounts Create
+                    event frequency: </label>
+                <div class="col-sm-8 slider">
+                    <input type="range" class="form-range slider-input" id="chartOfAccountsCreateDuration"
+                           name="chartOfAccountsCreateDuration"
+                           min="0" max="60" step="1" th:value="${erpSimulatorSchedules.chartOfAccountsCreateDuration}">
+                    <span id="chartOfAccountsCreateDurationValue" class="slider-value">0</span> minute
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="chartOfAccountsChangeDuration" class="col-sm-4 col-form-label">Chart of Accounts Change
+                    event frequency: </label>
+                <div class="col-sm-8 slider">
+                    <input type="range" class="form-range slider-input" id="chartOfAccountsChangeDuration"
+                           name="chartOfAccountsChangeDuration"
+                           min="0" max="60" step="1" th:value="${erpSimulatorSchedules.chartOfAccountsChangeDuration}">
+                    <span id="chartOfAccountsChangeDurationValue" class="slider-value">0</span> minute
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="notificationCreateDuration" class="col-sm-4 col-form-label">Notification Create event
+                    frequency: </label>
+                <div class="col-sm-8 slider">
+                    <input type="range" class="form-range slider-input" id="notificationCreateDuration"
+                           name="notificationCreateDuration"
+                           min="0" max="60" step="1" th:value="${erpSimulatorSchedules.notificationCreateDuration}">
+                    <span id="notificationCreateDurationValue" class="slider-value">0</span> minute
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="notificationChangeDuration" class="col-sm-4 col-form-label"> Notification Change event
+                    frequency: </label>
+                <div class="col-sm-8 slider">
+                    <input type="range" class="form-range slider-input" id="notificationChangeDuration"
+                           name="notificationChangeDuration"
+                           min="0" max="60" step="1" th:value="${erpSimulatorSchedules.notificationChangeDuration}">
+                    <span id="notificationChangeDurationValue" class="slider-value">0</span> minute
+                </div>
+            </div>
+            <input type="hidden" name="solaceConnectionParametersJson" id="solaceConnectionParametersJson"/>
+            <div class="row mt-3">
+                <div class="col-sm-8 offset-sm-4">
+                    <button type="submit" class="btn btn-dark">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    const sliders = document.querySelectorAll('.slider');
+    sliders.forEach(slider => {
+        const input = slider.querySelector('.slider-input');
+        const valueDisplay = slider.querySelector('.slider-value');
+        input.addEventListener('input', () => {
+            const value = input.value;
+            valueDisplay.textContent = value;
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const sliders = document.querySelectorAll('.slider');
+        sliders.forEach(slider => {
+            const input = slider.querySelector('.slider-input');
+            const valueDisplay = slider.querySelector('.slider-value');
+            const value = input.value;
+            valueDisplay.textContent = value;
+        });
+    });
+</script>
+
+<script th:inline="javascript">
+    var solaceConnectionParameters = [[${solaceConnectionParameters}]];
+    var solaceConnectionParametersJsonElement = document.getElementById('solaceConnectionParametersJson');
+    if (solaceConnectionParameters != null && solaceConnectionParametersJsonElement != null) {
+        solaceConnectionParametersJsonElement.value = objectToJsonString(solaceConnectionParameters);
+    }
+
+    function objectToJsonString(obj) {
+        return JSON.stringify(obj);
+    }
+</script>
+
+</body>
+</html>

@@ -10,10 +10,6 @@ import org.springframework.context.annotation.Configuration;
 @Getter
 @Setter
 public class SolaceConfigProperties {
-    private String hostUrl;
-    private String vpnName;
-    private String userName;
-    private String password;
     private String reconnectionAttempts;
     private String connectionRetriesPerHost;
     private String salesOrderTopic;

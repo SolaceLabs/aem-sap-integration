@@ -13,6 +13,7 @@ import com.solace.messaging.resources.Topic;
 import customer.capm_erp_simulation.config.SolaceConfigProperties;
 import customer.capm_erp_simulation.models.businessPartner.BusinessPartner;
 import customer.capm_erp_simulation.models.chartOfAccount.AccountHeaderType;
+import customer.capm_erp_simulation.models.config.SolaceConnectionParameters;
 import customer.capm_erp_simulation.models.materialMaster.MaterialCreate;
 import customer.capm_erp_simulation.models.materialMaster.MaterialUpdate;
 import customer.capm_erp_simulation.models.notifications.NotificationHeaderType;
@@ -20,8 +21,6 @@ import customer.capm_erp_simulation.models.salesOrder.SalesOrderType;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.text.StringSubstitutor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.event.ApplicationReadyEvent;
-import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PreDestroy;
@@ -41,46 +40,52 @@ public class SolaceEventPublisher {
     private MessagingService messagingService;
     ObjectMapper Obj = new ObjectMapper();
 
-    @EventListener
-    public void onApplicationEvent(final ApplicationReadyEvent applicationReadyEvent) {
 
-        // 1. Set up the properties including username, password, vpnHostUrl and other
-        // control parameters.
-        final Properties properties = setupPropertiesForConnection();
+    public boolean connectToBroker(final SolaceConnectionParameters solaceConnectionParameters) {
+        try {
+// 1. Set up the properties including username, password, vpnHostUrl and other
+            // control parameters.
+            final Properties properties = setupPropertiesForConnection(solaceConnectionParameters);
 
-        // 2. Create the MessagingService object and establishes the connection with the
-        // Solace event broker
-        messagingService = MessagingService.builder(ConfigurationProfile.V1).fromProperties(properties).build();
-        messagingService.connect(); // This is a blocking connect action
+            // 2. Create the MessagingService object and establishes the connection with the
+            // Solace event broker
+            messagingService = MessagingService.builder(ConfigurationProfile.V1).fromProperties(properties).build();
+            messagingService.connect(); // This is a blocking connect action
 
-        // 3. Register event handlers and callbacks for connection error handling.
-        setupConnectivityHandlingInMessagingService(messagingService);
+            // 3. Register event handlers and callbacks for connection error handling.
+            setupConnectivityHandlingInMessagingService(messagingService);
 
-        // 4. Build and start the publisher object
-        publisher = messagingService.createPersistentMessagePublisherBuilder()
-                .onBackPressureWait(1)
-                .build();
+            // 4. Build and start the publisher object
+            publisher = messagingService.createPersistentMessagePublisherBuilder()
+                    .onBackPressureWait(1)
+                    .build();
 //        publisher.setPublishFailureListener(e -> System.out.println("### FAILED PUBLISH " + e));
-        publisher.start();
+            publisher.start();
 
-        // 5. Build the messageBuilder instance
-        messageBuilder = messagingService.messageBuilder();
+            // 5. Build the messageBuilder instance
+            messageBuilder = messagingService.messageBuilder();
 
-        publisher.setMessagePublishReceiptListener(publishReceipt -> {
-            final PubSubPlusClientException e = publishReceipt.getException();
-            if (e == null) {  // no exception, ACK, broker has confirmed receipt
-                OutboundMessage outboundMessage = publishReceipt.getMessage();
-                log.info(String.format("ACK for Message %s", outboundMessage));  // good enough, the broker has it now
-            } else {// not good, a NACK
-                Object userContext = publishReceipt.getUserContext();  // optionally set at publish()
-                if (userContext != null) {
-                    log.warn(String.format("NACK for Message %s - %s", userContext, e));
-                } else {
-                    OutboundMessage outboundMessage = publishReceipt.getMessage();  // which message got NACKed?
-                    log.warn(String.format("NACK for Message %s - %s", outboundMessage, e));
+            publisher.setMessagePublishReceiptListener(publishReceipt -> {
+                final PubSubPlusClientException e = publishReceipt.getException();
+                if (e == null) {  // no exception, ACK, broker has confirmed receipt
+                    OutboundMessage outboundMessage = publishReceipt.getMessage();
+                    log.info(String.format("ACK for Message %s", outboundMessage));  // good enough, the broker has it now
+                } else {// not good, a NACK
+                    Object userContext = publishReceipt.getUserContext();  // optionally set at publish()
+                    if (userContext != null) {
+                        log.warn(String.format("NACK for Message %s - %s", userContext, e));
+                    } else {
+                        OutboundMessage outboundMessage = publishReceipt.getMessage();  // which message got NACKed?
+                        log.warn(String.format("NACK for Message %s - %s", outboundMessage, e));
+                    }
                 }
-            }
-        });
+            });
+            return true;
+        } catch (Exception exception) {
+            log.error("Error encountered while connecting to the Solace broker, error :", exception.getMessage());
+            return false;
+        }
+
     }
 
     private static void setupConnectivityHandlingInMessagingService(final MessagingService messagingService) {
@@ -92,14 +97,14 @@ public class SolaceEventPublisher {
                 .addReconnectionListener(serviceEvent -> System.out.println("### RECONNECTED: " + serviceEvent));
     }
 
-    private Properties setupPropertiesForConnection() {
+    private Properties setupPropertiesForConnection(final SolaceConnectionParameters solaceConnectionParameters) {
         final Properties properties = new Properties();
-        properties.setProperty(SolaceProperties.TransportLayerProperties.HOST, configProperties.getHostUrl()); // host:port
-        properties.setProperty(SolaceProperties.ServiceProperties.VPN_NAME, configProperties.getVpnName()); // message-vpn
+        properties.setProperty(SolaceProperties.TransportLayerProperties.HOST, solaceConnectionParameters.getHostUrl()); // host:port
+        properties.setProperty(SolaceProperties.ServiceProperties.VPN_NAME, solaceConnectionParameters.getVpnName()); // message-vpn
         properties.setProperty(SolaceProperties.AuthenticationProperties.SCHEME_BASIC_USER_NAME,
-                configProperties.getUserName()); // client-username
+                solaceConnectionParameters.getUserName()); // client-username
         properties.setProperty(SolaceProperties.AuthenticationProperties.SCHEME_BASIC_PASSWORD,
-                configProperties.getPassword()); // client-password
+                solaceConnectionParameters.getPassword()); // client-password
         properties.setProperty(SolaceProperties.TransportLayerProperties.RECONNECTION_ATTEMPTS,
                 configProperties.getReconnectionAttempts()); // recommended settings
         properties.setProperty(SolaceProperties.TransportLayerProperties.CONNECTION_RETRIES_PER_HOST,
@@ -107,7 +112,7 @@ public class SolaceEventPublisher {
         return properties;
     }
 
-    public void publishSalesOrderEvent(final SalesOrderType salesOrderEvent, final String verb) throws JsonProcessingException {
+    public void publishSalesOrderEvent(final SalesOrderType salesOrderEvent, final String verb) {
         try {
             String salesOrderCreateJson = Obj.writeValueAsString(salesOrderEvent);
             final OutboundMessage message = messageBuilder.build(salesOrderCreateJson);
@@ -122,10 +127,12 @@ public class SolaceEventPublisher {
             log.info("Published salesOrderEvent event :{} on topic : {}", salesOrderCreateJson, topicString);
         } catch (final RuntimeException runtimeException) {
             log.error("Error encountered while publishing event, exception :", runtimeException);
+        } catch (JsonProcessingException jsonProcessingException) {
+            log.error("Error encountered while converting salesOrderEvent to JSON string, exception :", jsonProcessingException);
         }
     }
 
-    public void publishBusinessPartnerEvent(final BusinessPartner businessPartnerEvent, final String verb) throws JsonProcessingException {
+    public void publishBusinessPartnerEvent(final BusinessPartner businessPartnerEvent, final String verb) {
         try {
             String businessPartnerEventJson = Obj.writeValueAsString(businessPartnerEvent);
             final OutboundMessage message = messageBuilder.build(businessPartnerEventJson);
@@ -138,10 +145,12 @@ public class SolaceEventPublisher {
             log.info("Published businessPartnerEvent event :{} on topic : {}", businessPartnerEventJson, topicString);
         } catch (final RuntimeException runtimeException) {
             log.error("Error encountered while publishing event, exception :", runtimeException);
+        } catch (JsonProcessingException jsonProcessingException) {
+            log.error("Error encountered while converting BusinessPartner to JSON string, exception :", jsonProcessingException);
         }
     }
 
-    public void publishMaterialMasterCreateEvents(final MaterialCreate materialCreate, final String verb) throws JsonProcessingException {
+    public void publishMaterialMasterCreateEvents(final MaterialCreate materialCreate, final String verb) {
         try {
             String materialCreateEventJson = Obj.writeValueAsString(materialCreate);
             final OutboundMessage message = messageBuilder.build(materialCreateEventJson);
@@ -159,10 +168,12 @@ public class SolaceEventPublisher {
             log.info("Published materialMasterCreateEvent event :{} on topic : {}", materialCreateEventJson, topicString);
         } catch (final RuntimeException runtimeException) {
             log.error("Error encountered while publishing event, exception :", runtimeException);
+        } catch (JsonProcessingException jsonProcessingException) {
+            log.error("Error encountered while converting MaterialCreate to JSON string, exception :", jsonProcessingException);
         }
     }
 
-    public void publishMaterialMasterUpdateEvents(final MaterialUpdate materialUpdate, final String verb) throws JsonProcessingException {
+    public void publishMaterialMasterUpdateEvents(final MaterialUpdate materialUpdate, final String verb) {
         try {
             String materialUpdateEventJson = Obj.writeValueAsString(materialUpdate);
             final OutboundMessage message = messageBuilder.build(materialUpdateEventJson);
@@ -180,10 +191,12 @@ public class SolaceEventPublisher {
             log.info("Published materialMasterUpdateEvent event :{} on topic : {}", materialUpdateEventJson, topicString);
         } catch (final RuntimeException runtimeException) {
             log.error("Error encountered while publishing event, exception :", runtimeException);
+        } catch (JsonProcessingException jsonProcessingException) {
+            log.error("Error encountered while converting MaterialUpdate to JSON string, exception :", jsonProcessingException);
         }
     }
 
-    public void publishChartOfAccountsEvents(final AccountHeaderType chartOfAccountEvent, final String verb) throws JsonProcessingException {
+    public void publishChartOfAccountsEvents(final AccountHeaderType chartOfAccountEvent, final String verb) {
         try {
             String chartOfAccountEventJson = Obj.writeValueAsString(chartOfAccountEvent);
             final OutboundMessage message = messageBuilder.build(chartOfAccountEventJson);
@@ -196,10 +209,12 @@ public class SolaceEventPublisher {
             log.info("Published chartOfAccountEvent event :{} on topic : {}", chartOfAccountEvent, topicString);
         } catch (final RuntimeException runtimeException) {
             log.error("Error encountered while publishing event, exception :", runtimeException);
+        } catch (JsonProcessingException jsonProcessingException) {
+            log.error("Error encountered while converting AccountHeaderType to JSON string, exception :", jsonProcessingException);
         }
     }
 
-    public void publishNotificationEvents(final NotificationHeaderType notificationEvent, final String verb) throws JsonProcessingException {
+    public void publishNotificationEvents(final NotificationHeaderType notificationEvent, final String verb) {
         try {
             String notificationEventJson = Obj.writeValueAsString(notificationEvent);
             final OutboundMessage message = messageBuilder.build(notificationEventJson);
@@ -214,6 +229,8 @@ public class SolaceEventPublisher {
             log.info("Published notificationEvent event :{} on topic : {}", notificationEvent, topicString);
         } catch (final RuntimeException runtimeException) {
             log.error("Error encountered while publishing event, exception :", runtimeException);
+        } catch (JsonProcessingException jsonProcessingException) {
+            log.error("Error encountered while converting NotificationHeaderType to JSON string, exception :", jsonProcessingException);
         }
     }
 

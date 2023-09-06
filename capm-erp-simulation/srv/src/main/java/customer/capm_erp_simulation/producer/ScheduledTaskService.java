@@ -1,6 +1,5 @@
 package customer.capm_erp_simulation.producer;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import customer.capm_erp_simulation.models.businessPartner.BusinessPartner;
@@ -20,7 +19,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.core.io.Resource;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -29,7 +27,7 @@ import java.util.Random;
 
 @Service
 @Slf4j
-public class ErpSimulator {
+public class ScheduledTaskService {
 
     @Autowired
     private SolaceEventPublisher solaceEventPublisher;
@@ -75,73 +73,63 @@ public class ErpSimulator {
 
     private Random random = new Random();
 
-    @Scheduled(fixedDelay = 60000, initialDelay = 10000)
-    protected void simulateSalesOrderCreateEvents() throws JsonProcessingException {
+    protected void simulateSalesOrderCreateEvents() {
         int randomIndex = random.nextInt(salesOrderCreateTestDataList.size());
         SalesOrderType salesOrderCreate = salesOrderCreateTestDataList.get(randomIndex);
         solaceEventPublisher.publishSalesOrderEvent(salesOrderCreate, "create");
     }
 
-    @Scheduled(fixedDelay = 60000, initialDelay = 15000)
-    protected void simulateSalesOrderUpdateEvents() throws JsonProcessingException {
+    protected void simulateSalesOrderChangeEvents() {
         int randomIndex = random.nextInt(salesOrderUpdateTestDataList.size());
         SalesOrderType salesOrderCreate = salesOrderUpdateTestDataList.get(randomIndex);
         solaceEventPublisher.publishSalesOrderEvent(salesOrderCreate, "change");
     }
 
-    @Scheduled(fixedDelay = 60000, initialDelay = 10000)
-    protected void simulateBusinessPartnerCreateEvents() throws JsonProcessingException {
+    protected void simulateBusinessPartnerCreateEvents() {
         int randomIndex = random.nextInt(businessPartnerCreateTestDataList.size());
         BusinessPartner businessPartnerCreateEvent = businessPartnerCreateTestDataList.get(randomIndex);
         solaceEventPublisher.publishBusinessPartnerEvent(businessPartnerCreateEvent, "create");
     }
 
-    @Scheduled(fixedDelay = 60000, initialDelay = 15000)
-    protected void simulateBusinessPartnerUpdateEvents() throws JsonProcessingException {
+    protected void simulateBusinessPartnerChangeEvents() {
         int randomIndex = random.nextInt(businessPartnerUpdateTestDataList.size());
         BusinessPartner businessPartnerUpdateEvent = businessPartnerUpdateTestDataList.get(randomIndex);
         solaceEventPublisher.publishBusinessPartnerEvent(businessPartnerUpdateEvent, "change");
     }
 
-    @Scheduled(fixedDelay = 60000, initialDelay = 10000)
-    protected void simulateMaterialMasterCreateEvents() throws JsonProcessingException {
+    protected void simulateMaterialMasterCreateEvents() {
         int randomIndex = random.nextInt(materialMasterCreateTestDataList.getMaterial().length);
         MaterialCreate[] materials = materialMasterCreateTestDataList.getMaterial();
         final MaterialCreate material = materials[randomIndex];
         solaceEventPublisher.publishMaterialMasterCreateEvents(material, "create");
     }
 
-    @Scheduled(fixedDelay = 60000, initialDelay = 15000)
-    protected void simulateMaterialMasterUpdateEvents() throws JsonProcessingException {
+    protected void simulateMaterialMasterChangeEvents() {
         int randomIndex = random.nextInt(materialMasterUpdateTestDataList.getMaterial().length);
         MaterialUpdate[] materials = materialMasterUpdateTestDataList.getMaterial();
         final MaterialUpdate material = materials[randomIndex];
         solaceEventPublisher.publishMaterialMasterUpdateEvents(material, "change");
     }
 
-    @Scheduled(fixedDelay = 60000, initialDelay = 10000)
-    protected void simulateChartOfAccountsCreateEvents() throws JsonProcessingException {
+    protected void simulateChartOfAccountsCreateEvents() {
         int randomIndex = random.nextInt(chartOfAccountsCreateTestDataList.getAccountHeader().size());
         AccountHeaderType accountHeader = chartOfAccountsCreateTestDataList.getAccountHeader().get(randomIndex);
         solaceEventPublisher.publishChartOfAccountsEvents(accountHeader, "create");
     }
 
-    @Scheduled(fixedDelay = 60000, initialDelay = 15000)
-    protected void simulateChartOfAccountsUpdateEvents() throws JsonProcessingException {
+    protected void simulateChartOfAccountsChangeEvents() {
         int randomIndex = random.nextInt(chartOfAccountsUpdateTestDataList.getAccountHeader().size());
         AccountHeaderType accountHeader = chartOfAccountsUpdateTestDataList.getAccountHeader().get(randomIndex);
         solaceEventPublisher.publishChartOfAccountsEvents(accountHeader, "change");
     }
 
-    @Scheduled(fixedDelay = 60000, initialDelay = 20000)
-    protected void simulateNotificationCreateEvents() throws JsonProcessingException {
+    protected void simulateNotificationCreateEvents() {
         int randomIndex = random.nextInt(notificationsCreateTestDataList.getNotificationHeader().size());
         NotificationHeaderType notificationHeaderType = notificationsCreateTestDataList.getNotificationHeader().get(randomIndex);
         solaceEventPublisher.publishNotificationEvents(notificationHeaderType, "create");
     }
 
-    @Scheduled(fixedDelay = 60000, initialDelay = 20000)
-    protected void simulateNotificationUpdateEvents() throws JsonProcessingException {
+    protected void simulateNotificationChangeEvents() {
         int randomIndex = random.nextInt(notificationsUpdateTestDataList.getNotificationHeader().size());
         NotificationHeaderType notificationHeaderType = notificationsUpdateTestDataList.getNotificationHeader().get(randomIndex);
         solaceEventPublisher.publishNotificationEvents(notificationHeaderType, "change");
