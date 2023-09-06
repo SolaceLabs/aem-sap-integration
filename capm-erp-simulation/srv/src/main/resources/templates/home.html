@@ -12,6 +12,26 @@
             background-color: #f8f9fa;
         }
 
+        .header {
+            background-color: rgb(32,42,68);
+            padding: 20px;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgb(255, 255, 255);
+        }
+        .header img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        .header img:first-child {
+            margin-right: auto;
+        }
+        .header img:last-child {
+            margin-left: auto;
+        }
+
         .navbar {
             background-color: #343a40;
             padding: 1rem 0;
@@ -48,7 +68,14 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark">
+<header class="header">
+    <img src="/images/solace-logo.png" alt="Solace logo" />
+    <h1>Welcome to the Advanced Event Mesh - ERP Simulator</h1>
+    <img src="/images/sap-logo.png" alt="SAP logo" />
+
+</header>
+
+<!--<nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
         <div class="navbar-brand">
             <img src="/images/solace-logo.png" alt="Solace" width="40" height="40" class="d-inline-block align-text-top">
@@ -58,7 +85,7 @@
             <img src="/images/sap-logo.png" alt="SAP" width="40" height="40" class="d-inline-block align-text-top">
         </div>
     </div>
-</nav>
+</nav>-->
 
 <div class="container mt-5">
     <form class="row g-3" action="#" th:action="@{/connectToBroker}" th:object="${solaceConnectionParameters}"
@@ -79,7 +106,7 @@
             <span th:errors="*{userName}"></span>
         </div>
         <div class="col-md-3 mb-3">
-            <input type="text" class="form-control" id="password" name="password" placeholder="Password"
+            <input type="password" class="form-control" id="password" name="password" placeholder="Password"
                    th:field="*{password}">
             <span th:errors="*{password}"></span>
         </div>

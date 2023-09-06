@@ -18,7 +18,7 @@ cds:
     auto-config.enabled: false
 
 solace:
-  reconnectionAttempts: "20"
+  reconnectionAttempts: "5"
   connectionRetriesPerHost: "5"
   salesOrderTopic: "sap.com/salesorder/{verb}/V1/{salesOrg}/{distributionChannel}/{division}/{customerId}"
   businessPartnerTopic: "sap.com/businesspartner/{verb}/V1/{businessPartnerType}/{partnerId}"
