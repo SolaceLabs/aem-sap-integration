@@ -238,7 +238,7 @@
             <input type="hidden" name="solaceConnectionParametersJson" id="solaceConnectionParametersJson"/>
             <div class="row mt-3">
                 <div class="col-sm-8 offset-sm-4">
-                    <button type="submit" class="btn btn-dark">Submit</button>
+                    <button type="submit" class="btn btn-dark" id="schedulesFormSubmitButton">Submit</button>
                 </div>
             </div>
         </form>
@@ -251,9 +251,12 @@
     sliders.forEach(slider => {
         const input = slider.querySelector('.slider-input');
         const valueDisplay = slider.querySelector('.slider-value');
+        const submitButton = document.querySelector('#schedulesFormSubmitButton');
         input.addEventListener('input', () => {
             const value = input.value;
             valueDisplay.textContent = value;
+            submitButton.classList.add('btn-success');
+            submitButton.classList.remove('btn-dark');
         });
     });
 
