@@ -16,7 +16,7 @@
                 "city": "New York",
                 "street": "Main Street",
                 "houseNumber": "123",
-                "postalCode": "10001",
+                "postalCode": "10901",
                 "country": "United States"
               }
             ]
@@ -39,7 +39,7 @@
             "address": [
               {
                 "nation": "Canada",
-                "city": "Toronto",
+                "city": "Ottawa",
                 "street": "Oak Street",
                 "houseNumber": "456",
                 "postalCode": "M5J 2G8",
@@ -172,7 +172,7 @@
                 "city": "Paris",
                 "street": "Champs-Élysées",
                 "houseNumber": "75",
-                "postalCode": "75008",
+                "postalCode": "75009",
                 "country": "France"
               }
             ]

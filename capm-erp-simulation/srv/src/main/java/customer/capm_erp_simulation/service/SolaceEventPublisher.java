@@ -12,7 +12,7 @@ import com.solace.messaging.publisher.PersistentMessagePublisher;
 import com.solace.messaging.resources.Topic;
 import customer.capm_erp_simulation.config.SolaceConfigProperties;
 import customer.capm_erp_simulation.models.businessPartner.BusinessPartner;
-import customer.capm_erp_simulation.models.chartOfAccount.AccountHeaderType;
+import customer.capm_erp_simulation.models.chartOfAccount.AccountHeader;
 import customer.capm_erp_simulation.models.config.SolaceConnectionParameters;
 import customer.capm_erp_simulation.models.materialMaster.MaterialCreate;
 import customer.capm_erp_simulation.models.materialMaster.MaterialUpdate;
@@ -102,11 +102,11 @@ public class SolaceEventPublisher {
         properties.setProperty(SolaceProperties.TransportLayerProperties.HOST, solaceConnectionParameters.getHostUrl()); // host:port
         properties.setProperty(SolaceProperties.ServiceProperties.VPN_NAME, solaceConnectionParameters.getVpnName()); // message-vpn
         properties.setProperty(SolaceProperties.AuthenticationProperties.SCHEME_BASIC_USER_NAME,
-                solaceConnectionParameters.getUserName()); // client-username
+                solaceConnectionParameters.getUserName());
         properties.setProperty(SolaceProperties.AuthenticationProperties.SCHEME_BASIC_PASSWORD,
-                solaceConnectionParameters.getPassword()); // client-password
+                solaceConnectionParameters.getPassword());
         properties.setProperty(SolaceProperties.TransportLayerProperties.RECONNECTION_ATTEMPTS,
-                configProperties.getReconnectionAttempts()); // recommended settings
+                configProperties.getReconnectionAttempts());
         properties.setProperty(SolaceProperties.TransportLayerProperties.CONNECTION_RETRIES_PER_HOST,
                 configProperties.getConnectionRetriesPerHost());
         return properties;
@@ -156,13 +156,13 @@ public class SolaceEventPublisher {
             final OutboundMessage message = messageBuilder.build(materialCreateEventJson);
             final Map<String, Object> params = new HashMap<>();
             params.put("verb", verb);
-            params.put("materialClass", materialCreate.getMaterialClass());
-            params.put("industrySector", materialCreate.getIndustrySector());
-            params.put("materialType", materialCreate.getMaterialType());
-            params.put("materialNumber", materialCreate.getMaterialNumber());
-            params.put("maintenanceStatusGroup", materialCreate.getMaintenanceStatusGroup());
-            params.put("maintenanceStatusMaterial", materialCreate.getMaintenanceStatusMaterial());
-            params.put("deletionIndicator", materialCreate.getDeletionIndicator());
+            params.put("materialClass", materialCreate.getMaterial().get(0).getMaterialClass());
+            params.put("industrySector", materialCreate.getMaterial().get(0).getIndustrySector());
+            params.put("materialType", materialCreate.getMaterial().get(0).getMaterialType());
+            params.put("materialNumber", materialCreate.getMaterial().get(0).getMaterialNumber());
+            params.put("maintenanceStatusGroup", materialCreate.getMaterial().get(0).getMaintenanceStatusGroup());
+            params.put("maintenanceStatusMaterial", materialCreate.getMaterial().get(0).getMaintenanceStatusMaterial());
+            params.put("deletionIndicator", materialCreate.getMaterial().get(0).getDeletionIndicator());
             String topicString = StringSubstitutor.replace(configProperties.getMaterialMasterTopic(), params, "{", "}");
             publisher.publish(message, Topic.of(topicString));
             log.info("Published materialMasterCreateEvent event :{} on topic : {}", materialCreateEventJson, topicString);
@@ -179,13 +179,13 @@ public class SolaceEventPublisher {
             final OutboundMessage message = messageBuilder.build(materialUpdateEventJson);
             final Map<String, Object> params = new HashMap<>();
             params.put("verb", verb);
-            params.put("materialClass", materialUpdate.getMaterialClass());
-            params.put("industrySector", materialUpdate.getIndustrySector());
-            params.put("materialType", materialUpdate.getMaterialType());
-            params.put("materialNumber", materialUpdate.getMaterialNumber());
-            params.put("maintenanceStatusGroup", materialUpdate.getMaintenanceStatusGroup());
-            params.put("maintenanceStatusMaterial", materialUpdate.getMaintenanceStatusMaterial());
-            params.put("deletionIndicator", materialUpdate.getDeletionIndicator());
+            params.put("materialClass", materialUpdate.getMaterial().get(0).getMaterialClass());
+            params.put("industrySector", materialUpdate.getMaterial().get(0).getIndustrySector());
+            params.put("materialType", materialUpdate.getMaterial().get(0).getMaterialType());
+            params.put("materialNumber", materialUpdate.getMaterial().get(0).getMaterialNumber());
+            params.put("maintenanceStatusGroup", materialUpdate.getMaterial().get(0).getMaintenanceStatusGroup());
+            params.put("maintenanceStatusMaterial", materialUpdate.getMaterial().get(0).getMaintenanceStatusMaterial());
+            params.put("deletionIndicator", materialUpdate.getMaterial().get(0).getDeletionIndicator());
             String topicString = StringSubstitutor.replace(configProperties.getMaterialMasterTopic(), params, "{", "}");
             publisher.publish(message, Topic.of(topicString));
             log.info("Published materialMasterUpdateEvent event :{} on topic : {}", materialUpdateEventJson, topicString);
@@ -196,17 +196,18 @@ public class SolaceEventPublisher {
         }
     }
 
-    public void publishChartOfAccountsEvents(final AccountHeaderType chartOfAccountEvent, final String verb) {
+    public void publishChartOfAccountsEvents(final AccountHeader chartOfAccountEvent, final String verb) {
         try {
             String chartOfAccountEventJson = Obj.writeValueAsString(chartOfAccountEvent);
             final OutboundMessage message = messageBuilder.build(chartOfAccountEventJson);
             final Map<String, Object> params = new HashMap<>();
             params.put("verb", verb);
-            params.put("chartOfAccounts", chartOfAccountEvent.getChartOfAccounts());
-            params.put("accountNumber", chartOfAccountEvent.getAccountNumber());
+            chartOfAccountEvent.getAccountHeader().get(0).getChartOfAccounts();
+            params.put("chartOfAccounts", chartOfAccountEvent.getAccountHeader().get(0).getChartOfAccounts());
+            params.put("accountNumber", chartOfAccountEvent.getAccountHeader().get(0).getAccountNumber());
             String topicString = StringSubstitutor.replace(configProperties.getChartOfAccountsTopic(), params, "{", "}");
             publisher.publish(message, Topic.of(topicString));
-            log.info("Published chartOfAccountEvent event :{} on topic : {}", chartOfAccountEvent, topicString);
+            log.info("Published chartOfAccountEvent event :{} on topic : {}", chartOfAccountEventJson, topicString);
         } catch (final RuntimeException runtimeException) {
             log.error("Error encountered while publishing event, exception :", runtimeException);
         } catch (JsonProcessingException jsonProcessingException) {
@@ -226,7 +227,7 @@ public class SolaceEventPublisher {
 
             String topicString = StringSubstitutor.replace(configProperties.getNotificationTopic(), params, "{", "}");
             publisher.publish(message, Topic.of(topicString));
-            log.info("Published notificationEvent event :{} on topic : {}", notificationEvent, topicString);
+            log.info("Published notificationEvent event :{} on topic : {}", notificationEventJson, topicString);
         } catch (final RuntimeException runtimeException) {
             log.error("Error encountered while publishing event, exception :", runtimeException);
         } catch (JsonProcessingException jsonProcessingException) {

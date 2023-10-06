@@ -10,7 +10,6 @@ import java.util.List;
 @ToString
 @NoArgsConstructor
 public class AccountHeaderType {
-
     private String chartOfAccounts;
     private String accountNumber;
     private String creator;

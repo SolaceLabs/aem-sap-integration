@@ -3,7 +3,7 @@ package customer.capm_erp_simulation.producer;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import customer.capm_erp_simulation.models.businessPartner.BusinessPartner;
-import customer.capm_erp_simulation.models.chartOfAccount.AccountHeaderType;
+import customer.capm_erp_simulation.models.chartOfAccount.AccountHeader;
 import customer.capm_erp_simulation.models.chartOfAccount.ChartOfAccounts;
 import customer.capm_erp_simulation.models.materialMaster.MaterialCreate;
 import customer.capm_erp_simulation.models.materialMaster.MaterialMasterCreate;
@@ -98,28 +98,28 @@ public class ScheduledTaskService {
     }
 
     protected void simulateMaterialMasterCreateEvents() {
-        int randomIndex = random.nextInt(materialMasterCreateTestDataList.getMaterial().length);
-        MaterialCreate[] materials = materialMasterCreateTestDataList.getMaterial();
+        int randomIndex = random.nextInt(materialMasterCreateTestDataList.getMaterialList().length);
+        MaterialCreate[] materials = materialMasterCreateTestDataList.getMaterialList();
         final MaterialCreate material = materials[randomIndex];
         solaceEventPublisher.publishMaterialMasterCreateEvents(material, "create");
     }
 
     protected void simulateMaterialMasterChangeEvents() {
-        int randomIndex = random.nextInt(materialMasterUpdateTestDataList.getMaterial().length);
-        MaterialUpdate[] materials = materialMasterUpdateTestDataList.getMaterial();
+        int randomIndex = random.nextInt(materialMasterUpdateTestDataList.getMaterialList().length);
+        MaterialUpdate[] materials = materialMasterUpdateTestDataList.getMaterialList();
         final MaterialUpdate material = materials[randomIndex];
         solaceEventPublisher.publishMaterialMasterUpdateEvents(material, "change");
     }
 
     protected void simulateChartOfAccountsCreateEvents() {
-        int randomIndex = random.nextInt(chartOfAccountsCreateTestDataList.getAccountHeader().size());
-        AccountHeaderType accountHeader = chartOfAccountsCreateTestDataList.getAccountHeader().get(randomIndex);
+        int randomIndex = random.nextInt(chartOfAccountsCreateTestDataList.getAccountHeaderList().size());
+        AccountHeader accountHeader = chartOfAccountsCreateTestDataList.getAccountHeaderList().get(randomIndex);
         solaceEventPublisher.publishChartOfAccountsEvents(accountHeader, "create");
     }
 
     protected void simulateChartOfAccountsChangeEvents() {
-        int randomIndex = random.nextInt(chartOfAccountsUpdateTestDataList.getAccountHeader().size());
-        AccountHeaderType accountHeader = chartOfAccountsUpdateTestDataList.getAccountHeader().get(randomIndex);
+        int randomIndex = random.nextInt(chartOfAccountsUpdateTestDataList.getAccountHeaderList().size());
+        AccountHeader accountHeader = chartOfAccountsUpdateTestDataList.getAccountHeaderList().get(randomIndex);
         solaceEventPublisher.publishChartOfAccountsEvents(accountHeader, "change");
     }
 

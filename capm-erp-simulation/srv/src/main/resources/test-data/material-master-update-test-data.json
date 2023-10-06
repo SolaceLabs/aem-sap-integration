@@ -1,482 +1,524 @@
 {
-  "material": [
+  "materialList": [
     {
-      "materialNumber": "M12345",
-      "creationDate": "2023-08-04",
-      "creatorUser": "JohnDoe",
-      "lastChange": "2023-08-05",
-      "changerUser": "JaneSmith",
-      "maintenanceStatusGroup": "01",
-      "maintenanceStatusMaterial": "A",
-      "deletionIndicator": "X",
-      "materialType": "ROH",
-      "industrySector": "Electronics",
-      "materialClass": "ClassX",
-      "baseUnit": "KG",
-      "units": [
+      "material": [
         {
-          "uOM": "KG",
-          "ean11": "1111111111111"
-        },
-        {
-          "uOM": "BOX",
-          "ean11": "2222222222222"
+          "materialNumber": "M12345",
+          "creationDate": "2023-08-04",
+          "creatorUser": "JohnDoe",
+          "lastChange": "2023-08-05",
+          "changerUser": "JaneSmith",
+          "maintenanceStatusGroup": "01",
+          "maintenanceStatusMaterial": "A",
+          "deletionIndicator": "X",
+          "materialType": "ROH",
+          "industrySector": "Electronics",
+          "materialClass": "ClassX",
+          "baseUnit": "KG",
+          "units": [
+            {
+              "uOM": "KG",
+              "ean11": "1111111111111"
+            },
+            {
+              "uOM": "BOX",
+              "ean11": "2222222222222"
+            }
+          ]
         }
-      ]
-    },
-    {
-      "materialNumber": "M67890",
-      "creationDate": "2023-08-04",
-      "creatorUser": "AliceJohnson",
-      "lastChange": "2023-08-06",
-      "changerUser": "BobWilliams",
-      "maintenanceStatusGroup": "02",
-      "maintenanceStatusMaterial": "B",
-      "deletionIndicator": " ",
-      "materialType": "HALB",
-      "industrySector": "Electronics",
-      "materialClass": "ClassB",
-      "baseUnit": "PC",
-      "units": [
+      ],
+      "material": [
         {
-          "uOM": "PC",
-          "ean11": "0987654321098"
-        },
-        {
-          "uOM": "BOX",
-          "ean11": "7654321098765"
+          "materialNumber": "M67890",
+          "creationDate": "2023-08-04",
+          "creatorUser": "AliceJohnson",
+          "lastChange": "2023-08-06",
+          "changerUser": "BobWilliams",
+          "maintenanceStatusGroup": "02",
+          "maintenanceStatusMaterial": "B",
+          "deletionIndicator": "NA",
+          "materialType": "HALB",
+          "industrySector": "Electronics",
+          "materialClass": "ClassB",
+          "baseUnit": "PC",
+          "units": [
+            {
+              "uOM": "PC",
+              "ean11": "0987654321098"
+            },
+            {
+              "uOM": "BOX",
+              "ean11": "7654321098765"
+            }
+          ]
         }
-      ]
-    },
-    {
-      "materialNumber": "M24680",
-      "creationDate": "2023-08-04",
-      "creatorUser": "RobertLee",
-      "lastChange": "2023-08-07",
-      "changerUser": "MaryDavis",
-      "maintenanceStatusGroup": "03",
-      "maintenanceStatusMaterial": "C",
-      "deletionIndicator": " ",
-      "materialType": "ROH",
-      "industrySector": "Chemical",
-      "materialClass": "ClassC",
-      "baseUnit": "KG",
-      "units": [
+      ],
+      "material": [
         {
-          "uOM": "KG",
-          "ean11": "5647382910111"
-        },
-        {
-          "uOM": "LB",
-          "ean11": "8899101011121"
+          "materialNumber": "M24680",
+          "creationDate": "2023-08-04",
+          "creatorUser": "RobertLee",
+          "lastChange": "2023-08-07",
+          "changerUser": "MaryDavis",
+          "maintenanceStatusGroup": "03",
+          "maintenanceStatusMaterial": "C",
+          "deletionIndicator": "X",
+          "materialType": "ROH",
+          "industrySector": "Chemical",
+          "materialClass": "ClassC",
+          "baseUnit": "KG",
+          "units": [
+            {
+              "uOM": "KG",
+              "ean11": "5647382910111"
+            },
+            {
+              "uOM": "LB",
+              "ean11": "8899101011121"
+            }
+          ]
         }
-      ]
-    },
-    {
-      "materialNumber": "M13579",
-      "creationDate": "2023-08-04",
-      "creatorUser": "SarahAnderson",
-      "lastChange": "2023-08-08",
-      "changerUser": "MichaelSmith",
-      "maintenanceStatusGroup": "04",
-      "maintenanceStatusMaterial": "D",
-      "deletionIndicator": "X",
-      "materialType": "VERP",
-      "industrySector": "Retail",
-      "materialClass": "ClassD",
-      "baseUnit": "PC",
-      "units": [
+      ],
+      "material": [
         {
-          "uOM": "PC",
-          "ean11": "0101010101010"
-        },
-        {
-          "uOM": "CASE",
-          "ean11": "1010101010101"
+          "materialNumber": "M13579",
+          "creationDate": "2023-08-04",
+          "creatorUser": "SarahAnderson",
+          "lastChange": "2023-08-08",
+          "changerUser": "MichaelSmith",
+          "maintenanceStatusGroup": "04",
+          "maintenanceStatusMaterial": "D",
+          "deletionIndicator": "X",
+          "materialType": "VERP",
+          "industrySector": "Retail",
+          "materialClass": "ClassD",
+          "baseUnit": "PC",
+          "units": [
+            {
+              "uOM": "PC",
+              "ean11": "0101010101010"
+            },
+            {
+              "uOM": "CASE",
+              "ean11": "1010101010101"
+            }
+          ]
         }
-      ]
-    },
-    {
-      "materialNumber": "M11111",
-      "creationDate": "2023-08-04",
-      "creatorUser": "JohnSmith",
-      "lastChange": "2023-08-09",
-      "changerUser": "JaneDoe",
-      "maintenanceStatusGroup": "05",
-      "maintenanceStatusMaterial": "E",
-      "deletionIndicator": " ",
-      "materialType": "ROH",
-      "industrySector": "Automotive",
-      "materialClass": "ClassA",
-      "baseUnit": "KG",
-      "units": [
+      ],
+      "material": [
         {
-          "uOM": "KG",
-          "ean11": "4444444444444"
-        },
-        {
-          "uOM": "BOX",
-          "ean11": "5555555555555"
+          "materialNumber": "M11111",
+          "creationDate": "2023-08-04",
+          "creatorUser": "JohnSmith",
+          "lastChange": "2023-08-09",
+          "changerUser": "JaneDoe",
+          "maintenanceStatusGroup": "05",
+          "maintenanceStatusMaterial": "E",
+          "deletionIndicator": "NA",
+          "materialType": "ROH",
+          "industrySector": "Automotive",
+          "materialClass": "ClassA",
+          "baseUnit": "KG",
+          "units": [
+            {
+              "uOM": "KG",
+              "ean11": "4444444444444"
+            },
+            {
+              "uOM": "BOX",
+              "ean11": "5555555555555"
+            }
+          ]
         }
-      ]
-    },
-    {
-      "materialNumber": "M22222",
-      "creationDate": "2023-08-04",
-      "creatorUser": "AliceSmith",
-      "lastChange": "2023-08-10",
-      "changerUser": "BobDoe",
-      "maintenanceStatusGroup": "06",
-      "maintenanceStatusMaterial": "F",
-      "deletionIndicator": " ",
-      "materialType": "FERT",
-      "industrySector": "Chemical",
-      "materialClass": "ClassC",
-      "baseUnit": "LB",
-      "units": [
+      ],
+      "material": [
         {
-          "uOM": "KG",
-          "ean11": "6666666666666"
-        },
-        {
-          "uOM": "BOX",
-          "ean11": "7777777777777"
+          "materialNumber": "M22222",
+          "creationDate": "2023-08-04",
+          "creatorUser": "AliceSmith",
+          "lastChange": "2023-08-10",
+          "changerUser": "BobDoe",
+          "maintenanceStatusGroup": "06",
+          "maintenanceStatusMaterial": "F",
+          "deletionIndicator": "X",
+          "materialType": "FERT",
+          "industrySector": "Chemical",
+          "materialClass": "ClassC",
+          "baseUnit": "LB",
+          "units": [
+            {
+              "uOM": "KG",
+              "ean11": "6666666666666"
+            },
+            {
+              "uOM": "BOX",
+              "ean11": "7777777777777"
+            }
+          ]
         }
-      ]
-    },
-    {
-      "materialNumber": "M33333",
-      "creationDate": "2023-08-04",
-      "creatorUser": "RobertDoe",
-      "lastChange": "2023-08-11",
-      "changerUser": "MarySmith",
-      "maintenanceStatusGroup": "07",
-      "maintenanceStatusMaterial": "G",
-      "deletionIndicator": " ",
-      "materialType": "HALB",
-      "industrySector": "Automotive",
-      "materialClass": "ClassD",
-      "baseUnit": "EA",
-      "units": [
+      ],
+      "material": [
         {
-          "uOM": "KG",
-          "ean11": "8888888888888"
-        },
-        {
-          "uOM": "BOX",
-          "ean11": "9999999999999"
+          "materialNumber": "M33333",
+          "creationDate": "2023-08-04",
+          "creatorUser": "RobertDoe",
+          "lastChange": "2023-08-11",
+          "changerUser": "MarySmith",
+          "maintenanceStatusGroup": "07",
+          "maintenanceStatusMaterial": "G",
+          "deletionIndicator": "NA",
+          "materialType": "HALB",
+          "industrySector": "Automotive",
+          "materialClass": "ClassD",
+          "baseUnit": "EA",
+          "units": [
+            {
+              "uOM": "KG",
+              "ean11": "8888888888888"
+            },
+            {
+              "uOM": "BOX",
+              "ean11": "9999999999999"
+            }
+          ]
         }
-      ]
-    },
-    {
-      "materialNumber": "M44444",
-      "creationDate": "2023-08-04",
-      "creatorUser": "SarahDoe",
-      "lastChange": "2023-08-12",
-      "changerUser": "MichaelJohnson",
-      "maintenanceStatusGroup": "08",
-      "maintenanceStatusMaterial": "H",
-      "deletionIndicator": "X",
-      "materialType": "FERT",
-      "industrySector": "Retail",
-      "materialClass": "ClassE",
-      "baseUnit": "PC",
-      "units": [
+      ],
+      "material": [
         {
-          "uOM": "EA",
-          "ean11": "1212121212121"
-        },
-        {
-          "uOM": "BOX",
-          "ean11": "1313131313131"
+          "materialNumber": "M44444",
+          "creationDate": "2023-08-04",
+          "creatorUser": "SarahDoe",
+          "lastChange": "2023-08-12",
+          "changerUser": "MichaelJohnson",
+          "maintenanceStatusGroup": "08",
+          "maintenanceStatusMaterial": "H",
+          "deletionIndicator": "X",
+          "materialType": "FERT",
+          "industrySector": "Retail",
+          "materialClass": "ClassE",
+          "baseUnit": "PC",
+          "units": [
+            {
+              "uOM": "EA",
+              "ean11": "1212121212121"
+            },
+            {
+              "uOM": "BOX",
+              "ean11": "1313131313131"
+            }
+          ]
         }
-      ]
-    },
-    {
-      "materialNumber": "M55555",
-      "creationDate": "2023-08-04",
-      "creatorUser": "OliviaDoe",
-      "lastChange": "2023-08-13",
-      "changerUser": "NoahJohnson",
-      "maintenanceStatusGroup": "09",
-      "maintenanceStatusMaterial": "I",
-      "deletionIndicator": " ",
-      "materialType": "HALB",
-      "industrySector": "Automotive",
-      "materialClass": "ClassF",
-      "baseUnit": "PC",
-      "units": [
+      ],
+      "material": [
         {
-          "uOM": "PC",
-          "ean11": "1414141414141"
-        },
-        {
-          "uOM": "CASE",
-          "ean11": "1515151515151"
+          "materialNumber": "M55555",
+          "creationDate": "2023-08-04",
+          "creatorUser": "OliviaDoe",
+          "lastChange": "2023-08-13",
+          "changerUser": "NoahJohnson",
+          "maintenanceStatusGroup": "09",
+          "maintenanceStatusMaterial": "I",
+          "deletionIndicator": "X",
+          "materialType": "HALB",
+          "industrySector": "Automotive",
+          "materialClass": "ClassF",
+          "baseUnit": "PC",
+          "units": [
+            {
+              "uOM": "PC",
+              "ean11": "1414141414141"
+            },
+            {
+              "uOM": "CASE",
+              "ean11": "1515151515151"
+            }
+          ]
         }
-      ]
-    },
-    {
-      "materialNumber": "M66666",
-      "creationDate": "2023-08-04",
-      "creatorUser": "JohnDavis",
-      "lastChange": "2023-08-14",
-      "changerUser": "JaneAnderson",
-      "maintenanceStatusGroup": "10",
-      "maintenanceStatusMaterial": "J",
-      "deletionIndicator": "X",
-      "materialType": "FERT",
-      "industrySector": "Automotive",
-      "materialClass": "ClassG",
-      "baseUnit": "EA",
-      "units": [
+      ],
+      "material": [
         {
-          "uOM": "KG",
-          "ean11": "1616161616161"
-        },
-        {
-          "uOM": "BOX",
-          "ean11": "1717171717171"
+          "materialNumber": "M66666",
+          "creationDate": "2023-08-04",
+          "creatorUser": "JohnDavis",
+          "lastChange": "2023-08-14",
+          "changerUser": "JaneAnderson",
+          "maintenanceStatusGroup": "10",
+          "maintenanceStatusMaterial": "J",
+          "deletionIndicator": "X",
+          "materialType": "FERT",
+          "industrySector": "Automotive",
+          "materialClass": "ClassG",
+          "baseUnit": "EA",
+          "units": [
+            {
+              "uOM": "KG",
+              "ean11": "1616161616161"
+            },
+            {
+              "uOM": "BOX",
+              "ean11": "1717171717171"
+            }
+          ]
         }
-      ]
-    },
-    {
-      "materialNumber": "M77777",
-      "creationDate": "2023-08-04",
-      "creatorUser": "AliceDavis",
-      "lastChange": "2023-08-15",
-      "changerUser": "BobAnderson",
-      "maintenanceStatusGroup": "11",
-      "maintenanceStatusMaterial": "K",
-      "deletionIndicator": " ",
-      "materialType": "ROH",
-      "industrySector": "Automotive",
-      "materialClass": "ClassH",
-      "baseUnit": "KG",
-      "units": [
+      ],
+      "material": [
         {
-          "uOM": "KG",
-          "ean11": "1818181818181"
-        },
-        {
-          "uOM": "BOX",
-          "ean11": "1919191919191"
+          "materialNumber": "M77777",
+          "creationDate": "2023-08-04",
+          "creatorUser": "AliceDavis",
+          "lastChange": "2023-08-15",
+          "changerUser": "BobAnderson",
+          "maintenanceStatusGroup": "11",
+          "maintenanceStatusMaterial": "K",
+          "deletionIndicator": "NA",
+          "materialType": "ROH",
+          "industrySector": "Automotive",
+          "materialClass": "ClassH",
+          "baseUnit": "KG",
+          "units": [
+            {
+              "uOM": "KG",
+              "ean11": "1818181818181"
+            },
+            {
+              "uOM": "BOX",
+              "ean11": "1919191919191"
+            }
+          ]
         }
-      ]
-    },
-    {
-      "materialNumber": "M88888",
-      "creationDate": "2023-08-04",
-      "creatorUser": "RobertAnderson",
-      "lastChange": "2023-08-16",
-      "changerUser": "MaryDavis",
-      "maintenanceStatusGroup": "12",
-      "maintenanceStatusMaterial": "L",
-      "deletionIndicator": " ",
-      "materialType": "HALB",
-      "industrySector": "Chemical",
-      "materialClass": "ClassI",
-      "baseUnit": "PC",
-      "units": [
+      ],
+      "material": [
         {
-          "uOM": "PC",
-          "ean11": "2020202020202"
-        },
-        {
-          "uOM": "BOX",
-          "ean11": "2121212121212"
+          "materialNumber": "M88888",
+          "creationDate": "2023-08-04",
+          "creatorUser": "RobertAnderson",
+          "lastChange": "2023-08-16",
+          "changerUser": "MaryDavis",
+          "maintenanceStatusGroup": "12",
+          "maintenanceStatusMaterial": "L",
+          "deletionIndicator": "X",
+          "materialType": "HALB",
+          "industrySector": "Chemical",
+          "materialClass": "ClassI",
+          "baseUnit": "PC",
+          "units": [
+            {
+              "uOM": "PC",
+              "ean11": "2020202020202"
+            },
+            {
+              "uOM": "BOX",
+              "ean11": "2121212121212"
+            }
+          ]
         }
-      ]
-    },
-    {
-      "materialNumber": "M99999",
-      "creationDate": "2023-08-04",
-      "creatorUser": "SarahAnderson",
-      "lastChange": "2023-08-17",
-      "changerUser": "MichaelSmith",
-      "maintenanceStatusGroup": "13",
-      "maintenanceStatusMaterial": "M",
-      "deletionIndicator": " ",
-      "materialType": "FERT",
-      "industrySector": "Chemical",
-      "materialClass": "ClassJ",
-      "baseUnit": "EA",
-      "units": [
+      ],
+      "material": [
         {
-          "uOM": "EA",
-          "ean11": "2222222222222"
-        },
-        {
-          "uOM": "CASE",
-          "ean11": "2323232323232"
+          "materialNumber": "M99999",
+          "creationDate": "2023-08-04",
+          "creatorUser": "SarahAnderson",
+          "lastChange": "2023-08-17",
+          "changerUser": "MichaelSmith",
+          "maintenanceStatusGroup": "13",
+          "maintenanceStatusMaterial": "M",
+          "deletionIndicator": "NA",
+          "materialType": "FERT",
+          "industrySector": "Chemical",
+          "materialClass": "ClassJ",
+          "baseUnit": "EA",
+          "units": [
+            {
+              "uOM": "EA",
+              "ean11": "2222222222222"
+            },
+            {
+              "uOM": "CASE",
+              "ean11": "2323232323232"
+            }
+          ]
         }
-      ]
-    },
-    {
-      "materialNumber": "M101010",
-      "creationDate": "2023-08-04",
-      "creatorUser": "OliviaJohnson",
-      "lastChange": "2023-08-18",
-      "changerUser": "NoahBrown",
-      "maintenanceStatusGroup": "14",
-      "maintenanceStatusMaterial": "N",
-      "deletionIndicator": "X",
-      "materialType": "HALB",
-      "industrySector": "Automotive",
-      "materialClass": "ClassK",
-      "baseUnit": "PC",
-      "units": [
+      ],
+      "material": [
         {
-          "uOM": "PC",
-          "ean11": "2424242424242"
-        },
-        {
-          "uOM": "BOX",
-          "ean11": "2525252525252"
+          "materialNumber": "M101010",
+          "creationDate": "2023-08-04",
+          "creatorUser": "OliviaJohnson",
+          "lastChange": "2023-08-18",
+          "changerUser": "NoahBrown",
+          "maintenanceStatusGroup": "14",
+          "maintenanceStatusMaterial": "N",
+          "deletionIndicator": "X",
+          "materialType": "HALB",
+          "industrySector": "Automotive",
+          "materialClass": "ClassK",
+          "baseUnit": "PC",
+          "units": [
+            {
+              "uOM": "PC",
+              "ean11": "2424242424242"
+            },
+            {
+              "uOM": "BOX",
+              "ean11": "2525252525252"
+            }
+          ]
         }
-      ]
-    },
-    {
-      "materialNumber": "M111213",
-      "creationDate": "2023-08-04",
-      "creatorUser": "JohnSmith",
-      "lastChange": "2023-08-19",
-      "changerUser": "JaneDoe",
-      "maintenanceStatusGroup": "15",
-      "maintenanceStatusMaterial": "O",
-      "deletionIndicator": " ",
-      "materialType": "ROH",
-      "industrySector": "Automotive",
-      "materialClass": "ClassL",
-      "baseUnit": "EA",
-      "units": [
+      ],
+      "material": [
         {
-          "uOM": "EA",
-          "ean11": "2626262626262"
-        },
-        {
-          "uOM": "BOX",
-          "ean11": "2727272727272"
+          "materialNumber": "M111213",
+          "creationDate": "2023-08-04",
+          "creatorUser": "JohnSmith",
+          "lastChange": "2023-08-19",
+          "changerUser": "JaneDoe",
+          "maintenanceStatusGroup": "15",
+          "maintenanceStatusMaterial": "O",
+          "deletionIndicator": "X",
+          "materialType": "ROH",
+          "industrySector": "Automotive",
+          "materialClass": "ClassL",
+          "baseUnit": "EA",
+          "units": [
+            {
+              "uOM": "EA",
+              "ean11": "2626262626262"
+            },
+            {
+              "uOM": "BOX",
+              "ean11": "2727272727272"
+            }
+          ]
         }
-      ]
-    },
-    {
-      "materialNumber": "M131415",
-      "creationDate": "2023-08-04",
-      "creatorUser": "AliceSmith",
-      "lastChange": "2023-08-20",
-      "changerUser": "BobDoe",
-      "maintenanceStatusGroup": "16",
-      "maintenanceStatusMaterial": "P",
-      "deletionIndicator": " ",
-      "materialType": "FERT",
-      "industrySector": "Chemical",
-      "materialClass": "ClassM",
-      "baseUnit": "LB",
-      "units": [
+      ],
+      "material": [
         {
-          "uOM": "EA",
-          "ean11": "2828282828282"
-        },
-        {
-          "uOM": "BOX",
-          "ean11": "2929292929292"
+          "materialNumber": "M131415",
+          "creationDate": "2023-08-04",
+          "creatorUser": "AliceSmith",
+          "lastChange": "2023-08-20",
+          "changerUser": "BobDoe",
+          "maintenanceStatusGroup": "16",
+          "maintenanceStatusMaterial": "P",
+          "deletionIndicator": "NA",
+          "materialType": "FERT",
+          "industrySector": "Chemical",
+          "materialClass": "ClassM",
+          "baseUnit": "LB",
+          "units": [
+            {
+              "uOM": "EA",
+              "ean11": "2828282828282"
+            },
+            {
+              "uOM": "BOX",
+              "ean11": "2929292929292"
+            }
+          ]
         }
-      ]
-    },
-    {
-      "materialNumber": "M161718",
-      "creationDate": "2023-08-04",
-      "creatorUser": "RobertDoe",
-      "lastChange": "2023-08-21",
-      "changerUser": "MarySmith",
-      "maintenanceStatusGroup": "17",
-      "maintenanceStatusMaterial": "Q",
-      "deletionIndicator": " ",
-      "materialType": "HALB",
-      "industrySector": "Chemical",
-      "materialClass": "ClassN",
-      "baseUnit": "PC",
-      "units": [
+      ],
+      "material": [
         {
-          "uOM": "EA",
-          "ean11": "3030303030303"
-        },
-        {
-          "uOM": "BOX",
-          "ean11": "3131313131313"
+          "materialNumber": "M161718",
+          "creationDate": "2023-08-04",
+          "creatorUser": "RobertDoe",
+          "lastChange": "2023-08-21",
+          "changerUser": "MarySmith",
+          "maintenanceStatusGroup": "17",
+          "maintenanceStatusMaterial": "Q",
+          "deletionIndicator": "X",
+          "materialType": "HALB",
+          "industrySector": "Chemical",
+          "materialClass": "ClassN",
+          "baseUnit": "PC",
+          "units": [
+            {
+              "uOM": "EA",
+              "ean11": "3030303030303"
+            },
+            {
+              "uOM": "BOX",
+              "ean11": "3131313131313"
+            }
+          ]
         }
-      ]
-    },
-    {
-      "materialNumber": "M192021",
-      "creationDate": "2023-08-04",
-      "creatorUser": "SarahDoe",
-      "lastChange": "2023-08-22",
-      "changerUser": "MichaelJohnson",
-      "maintenanceStatusGroup": "18",
-      "maintenanceStatusMaterial": "R",
-      "deletionIndicator": "X",
-      "materialType": "FERT",
-      "industrySector": "Chemical",
-      "materialClass": "ClassO",
-      "baseUnit": "PC",
-      "units": [
+      ],
+      "material": [
         {
-          "uOM": "KG",
-          "ean11": "3232323232323"
-        },
-        {
-          "uOM": "BOX",
-          "ean11": "3333333333333"
+          "materialNumber": "M192021",
+          "creationDate": "2023-08-04",
+          "creatorUser": "SarahDoe",
+          "lastChange": "2023-08-22",
+          "changerUser": "MichaelJohnson",
+          "maintenanceStatusGroup": "18",
+          "maintenanceStatusMaterial": "R",
+          "deletionIndicator": "X",
+          "materialType": "FERT",
+          "industrySector": "Chemical",
+          "materialClass": "ClassO",
+          "baseUnit": "PC",
+          "units": [
+            {
+              "uOM": "KG",
+              "ean11": "3232323232323"
+            },
+            {
+              "uOM": "BOX",
+              "ean11": "3333333333333"
+            }
+          ]
         }
-      ]
-    },
-    {
-      "materialNumber": "M212223",
-      "creationDate": "2023-08-04",
-      "creatorUser": "OliviaJohnson",
-      "lastChange": "2023-08-23",
-      "changerUser": "NoahBrown",
-      "maintenanceStatusGroup": "19",
-      "maintenanceStatusMaterial": "S",
-      "deletionIndicator": " ",
-      "materialType": "HALB",
-      "industrySector": "Automotive",
-      "materialClass": "ClassP",
-      "baseUnit": "PC",
-      "units": [
+      ],
+      "material": [
         {
-          "uOM": "PC",
-          "ean11": "3434343434343"
-        },
-        {
-          "uOM": "CASE",
-          "ean11": "3535353535353"
+          "materialNumber": "M212223",
+          "creationDate": "2023-08-04",
+          "creatorUser": "OliviaJohnson",
+          "lastChange": "2023-08-23",
+          "changerUser": "NoahBrown",
+          "maintenanceStatusGroup": "19",
+          "maintenanceStatusMaterial": "S",
+          "deletionIndicator": "NA",
+          "materialType": "HALB",
+          "industrySector": "Automotive",
+          "materialClass": "ClassP",
+          "baseUnit": "PC",
+          "units": [
+            {
+              "uOM": "PC",
+              "ean11": "3434343434343"
+            },
+            {
+              "uOM": "CASE",
+              "ean11": "3535353535353"
+            }
+          ]
         }
-      ]
-    },
-    {
-      "materialNumber": "M242526",
-      "creationDate": "2023-08-04",
-      "creatorUser": "JohnDavis",
-      "lastChange": "2023-08-24",
-      "changerUser": "JaneAnderson",
-      "maintenanceStatusGroup": "20",
-      "maintenanceStatusMaterial": "T",
-      "deletionIndicator": "X",
-      "materialType": "FERT",
-      "industrySector": "Automotive",
-      "materialClass": "ClassQ",
-      "baseUnit": "EA",
-      "units": [
+      ],
+      "material": [
         {
-          "uOM": "KG",
-          "ean11": "3636363636363"
-        },
-        {
-          "uOM": "BOX",
-          "ean11": "3737373737373"
+          "materialNumber": "M242526",
+          "creationDate": "2023-08-04",
+          "creatorUser": "JohnDavis",
+          "lastChange": "2023-08-24",
+          "changerUser": "JaneAnderson",
+          "maintenanceStatusGroup": "20",
+          "maintenanceStatusMaterial": "T",
+          "deletionIndicator": "X",
+          "materialType": "FERT",
+          "industrySector": "Automotive",
+          "materialClass": "ClassQ",
+          "baseUnit": "EA",
+          "units": [
+            {
+              "uOM": "KG",
+              "ean11": "3636363636363"
+            },
+            {
+              "uOM": "BOX",
+              "ean11": "3737373737373"
+            }
+          ]
         }
       ]
     }

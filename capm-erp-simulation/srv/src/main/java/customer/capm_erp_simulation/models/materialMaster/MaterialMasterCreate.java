@@ -4,5 +4,5 @@ import lombok.Data;
 
 @Data
 public class MaterialMasterCreate {
-    private MaterialCreate[] material;
+    private MaterialCreate[] materialList;
 }
