@@ -4,12 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import customer.capm_erp_simulation.models.businessPartner.BusinessPartner;
 import customer.capm_erp_simulation.models.chartOfAccount.AccountHeader;
-import customer.capm_erp_simulation.models.chartOfAccount.ChartOfAccounts;
-import customer.capm_erp_simulation.models.materialMaster.MaterialCreate;
-import customer.capm_erp_simulation.models.materialMaster.MaterialMasterCreate;
-import customer.capm_erp_simulation.models.materialMaster.MaterialMasterUpdate;
-import customer.capm_erp_simulation.models.materialMaster.MaterialUpdate;
-import customer.capm_erp_simulation.models.notifications.NotificationHeaderType;
+import customer.capm_erp_simulation.models.materialMaster.MaterialType;
 import customer.capm_erp_simulation.models.notifications.Notifications;
 import customer.capm_erp_simulation.models.salesOrder.SalesOrderType;
 import customer.capm_erp_simulation.service.SolaceEventPublisher;
@@ -64,12 +59,12 @@ public class ScheduledTaskService {
     private List<SalesOrderType> salesOrderUpdateTestDataList;
     private List<BusinessPartner> businessPartnerCreateTestDataList;
     private List<BusinessPartner> businessPartnerUpdateTestDataList;
-    private MaterialMasterCreate materialMasterCreateTestDataList;
-    private MaterialMasterUpdate materialMasterUpdateTestDataList;
-    private ChartOfAccounts chartOfAccountsCreateTestDataList;
-    private ChartOfAccounts chartOfAccountsUpdateTestDataList;
-    private Notifications notificationsCreateTestDataList;
-    private Notifications notificationsUpdateTestDataList;
+    private List<MaterialType> materialMasterCreateTestDataList;
+    private List<MaterialType> materialMasterUpdateTestDataList;
+    private List<AccountHeader> chartOfAccountsCreateTestDataList;
+    private List<AccountHeader> chartOfAccountsUpdateTestDataList;
+    private List<Notifications> notificationsCreateTestDataList;
+    private List<Notifications> notificationsUpdateTestDataList;
 
     private Random random = new Random();
 
@@ -98,41 +93,39 @@ public class ScheduledTaskService {
     }
 
     protected void simulateMaterialMasterCreateEvents() {
-        int randomIndex = random.nextInt(materialMasterCreateTestDataList.getMaterialList().length);
-        MaterialCreate[] materials = materialMasterCreateTestDataList.getMaterialList();
-        final MaterialCreate material = materials[randomIndex];
+        int randomIndex = random.nextInt(materialMasterCreateTestDataList.size());
+        MaterialType material = materialMasterCreateTestDataList.get(randomIndex);
         solaceEventPublisher.publishMaterialMasterCreateEvents(material, "create");
     }
 
     protected void simulateMaterialMasterChangeEvents() {
-        int randomIndex = random.nextInt(materialMasterUpdateTestDataList.getMaterialList().length);
-        MaterialUpdate[] materials = materialMasterUpdateTestDataList.getMaterialList();
-        final MaterialUpdate material = materials[randomIndex];
+        int randomIndex = random.nextInt(materialMasterUpdateTestDataList.size());
+        MaterialType material = materialMasterUpdateTestDataList.get(randomIndex);
         solaceEventPublisher.publishMaterialMasterUpdateEvents(material, "change");
     }
 
     protected void simulateChartOfAccountsCreateEvents() {
-        int randomIndex = random.nextInt(chartOfAccountsCreateTestDataList.getAccountHeaderList().size());
-        AccountHeader accountHeader = chartOfAccountsCreateTestDataList.getAccountHeaderList().get(randomIndex);
+        int randomIndex = random.nextInt(chartOfAccountsCreateTestDataList.size());
+        AccountHeader accountHeader = chartOfAccountsCreateTestDataList.get(randomIndex);
         solaceEventPublisher.publishChartOfAccountsEvents(accountHeader, "create");
     }
 
     protected void simulateChartOfAccountsChangeEvents() {
-        int randomIndex = random.nextInt(chartOfAccountsUpdateTestDataList.getAccountHeaderList().size());
-        AccountHeader accountHeader = chartOfAccountsUpdateTestDataList.getAccountHeaderList().get(randomIndex);
+        int randomIndex = random.nextInt(chartOfAccountsUpdateTestDataList.size());
+        AccountHeader accountHeader = chartOfAccountsUpdateTestDataList.get(randomIndex);
         solaceEventPublisher.publishChartOfAccountsEvents(accountHeader, "change");
     }
 
     protected void simulateNotificationCreateEvents() {
-        int randomIndex = random.nextInt(notificationsCreateTestDataList.getNotificationHeader().size());
-        NotificationHeaderType notificationHeaderType = notificationsCreateTestDataList.getNotificationHeader().get(randomIndex);
-        solaceEventPublisher.publishNotificationEvents(notificationHeaderType, "create");
+        int randomIndex = random.nextInt(notificationsCreateTestDataList.size());
+        Notifications notification = notificationsCreateTestDataList.get(randomIndex);
+        solaceEventPublisher.publishNotificationEvents(notification, "create");
     }
 
     protected void simulateNotificationChangeEvents() {
-        int randomIndex = random.nextInt(notificationsUpdateTestDataList.getNotificationHeader().size());
-        NotificationHeaderType notificationHeaderType = notificationsUpdateTestDataList.getNotificationHeader().get(randomIndex);
-        solaceEventPublisher.publishNotificationEvents(notificationHeaderType, "change");
+        int randomIndex = random.nextInt(notificationsUpdateTestDataList.size());
+        Notifications notification = notificationsUpdateTestDataList.get(randomIndex);
+        solaceEventPublisher.publishNotificationEvents(notification, "change");
     }
 
     @EventListener
@@ -146,12 +139,20 @@ public class ScheduledTaskService {
             });
             businessPartnerUpdateTestDataList = objectMapper.readValue(businessPartnerUpdateTestDataFile.getInputStream(), new TypeReference<List<BusinessPartner>>() {
             });
-            materialMasterCreateTestDataList = objectMapper.readValue(materialMasterCreateTestDataFile.getInputStream(), MaterialMasterCreate.class);
-            materialMasterUpdateTestDataList = objectMapper.readValue(materialMasterUpdateTestDataFile.getInputStream(), MaterialMasterUpdate.class);
-            chartOfAccountsCreateTestDataList = objectMapper.readValue(chartOfAccountsCreateTestDataFile.getInputStream(), ChartOfAccounts.class);
-            chartOfAccountsUpdateTestDataList = objectMapper.readValue(chartOfAccountsUpdateTestDataFile.getInputStream(), ChartOfAccounts.class);
-            notificationsCreateTestDataList = objectMapper.readValue(notificationCreateTestDataFile.getInputStream(), Notifications.class);
-            notificationsUpdateTestDataList = objectMapper.readValue(notificationUpdateTestDataFile.getInputStream(), Notifications.class);
+            materialMasterCreateTestDataList = objectMapper.readValue(materialMasterCreateTestDataFile.getInputStream(), new TypeReference<List<MaterialType>>() {
+            });
+            materialMasterUpdateTestDataList = objectMapper.readValue(materialMasterUpdateTestDataFile.getInputStream(), new TypeReference<List<MaterialType>>() {
+            });
+            chartOfAccountsCreateTestDataList = objectMapper.readValue(chartOfAccountsCreateTestDataFile.getInputStream(), new TypeReference<List<AccountHeader>>() {
+            });
+            chartOfAccountsUpdateTestDataList = objectMapper.readValue(chartOfAccountsUpdateTestDataFile.getInputStream(), new TypeReference<List<AccountHeader>>() {
+            });
+            notificationsCreateTestDataList = objectMapper.readValue(notificationCreateTestDataFile.getInputStream(), new TypeReference<List<Notifications>>() {
+            });
+            notificationsUpdateTestDataList = objectMapper.readValue(notificationUpdateTestDataFile.getInputStream(), new TypeReference<List<Notifications>>() {
+            });
+
+            log.debug("materialMasterCreateTestDataList:{}", materialMasterCreateTestDataList);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

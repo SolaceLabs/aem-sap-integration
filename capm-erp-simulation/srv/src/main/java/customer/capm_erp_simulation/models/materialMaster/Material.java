@@ -1,10 +1,11 @@
 package customer.capm_erp_simulation.models.materialMaster;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
-public class MaterialCreateType {
+public class Material {
     @JsonProperty("materialNumber")
     private String materialNumber;
 
@@ -40,6 +41,10 @@ public class MaterialCreateType {
 
     @JsonProperty("units")
     private Unit[] units;
+
+    @JsonProperty("lastChange")
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private String lastChange;
 
     @Data
     public static class Unit {

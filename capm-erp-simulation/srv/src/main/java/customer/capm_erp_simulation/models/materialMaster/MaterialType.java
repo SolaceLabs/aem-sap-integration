@@ -5,6 +5,6 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class MaterialCreate {
-    private List<MaterialCreateType> material;
+public class MaterialType {
+    private List<Material> material;
 }

@@ -10,13 +10,12 @@ import com.solace.messaging.publisher.OutboundMessage;
 import com.solace.messaging.publisher.OutboundMessageBuilder;
 import com.solace.messaging.publisher.PersistentMessagePublisher;
 import com.solace.messaging.resources.Topic;
-import customer.capm_erp_simulation.config.SolaceConfigProperties;
+import customer.capm_erp_simulation.models.config.SolaceConfigProperties;
 import customer.capm_erp_simulation.models.businessPartner.BusinessPartner;
 import customer.capm_erp_simulation.models.chartOfAccount.AccountHeader;
 import customer.capm_erp_simulation.models.config.SolaceConnectionParameters;
-import customer.capm_erp_simulation.models.materialMaster.MaterialCreate;
-import customer.capm_erp_simulation.models.materialMaster.MaterialUpdate;
-import customer.capm_erp_simulation.models.notifications.NotificationHeaderType;
+import customer.capm_erp_simulation.models.materialMaster.MaterialType;
+import customer.capm_erp_simulation.models.notifications.Notifications;
 import customer.capm_erp_simulation.models.salesOrder.SalesOrderType;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.text.StringSubstitutor;
@@ -150,7 +149,7 @@ public class SolaceEventPublisher {
         }
     }
 
-    public void publishMaterialMasterCreateEvents(final MaterialCreate materialCreate, final String verb) {
+    public void publishMaterialMasterCreateEvents(final MaterialType materialCreate, final String verb) {
         try {
             String materialCreateEventJson = Obj.writeValueAsString(materialCreate);
             final OutboundMessage message = messageBuilder.build(materialCreateEventJson);
@@ -173,7 +172,7 @@ public class SolaceEventPublisher {
         }
     }
 
-    public void publishMaterialMasterUpdateEvents(final MaterialUpdate materialUpdate, final String verb) {
+    public void publishMaterialMasterUpdateEvents(final MaterialType materialUpdate, final String verb) {
         try {
             String materialUpdateEventJson = Obj.writeValueAsString(materialUpdate);
             final OutboundMessage message = messageBuilder.build(materialUpdateEventJson);
@@ -215,15 +214,15 @@ public class SolaceEventPublisher {
         }
     }
 
-    public void publishNotificationEvents(final NotificationHeaderType notificationEvent, final String verb) {
+    public void publishNotificationEvents(final Notifications notificationEvent, final String verb) {
         try {
             String notificationEventJson = Obj.writeValueAsString(notificationEvent);
             final OutboundMessage message = messageBuilder.build(notificationEventJson);
             final Map<String, Object> params = new HashMap<>();
             params.put("verb", verb);
-            params.put("type", notificationEvent.getType());
-            params.put("plant", notificationEvent.getPlant());
-            params.put("notificationId", notificationEvent.getNotificationId());
+            params.put("type", notificationEvent.getNotificationHeader().get(0).getType());
+            params.put("plant", notificationEvent.getNotificationHeader().get(0).getPlant());
+            params.put("notificationId", notificationEvent.getNotificationHeader().get(0).getNotificationId());
 
             String topicString = StringSubstitutor.replace(configProperties.getNotificationTopic(), params, "{", "}");
             publisher.publish(message, Topic.of(topicString));

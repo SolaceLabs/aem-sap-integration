@@ -1,4 +1,4 @@
-package customer.capm_erp_simulation.config;
+package customer.capm_erp_simulation.models.config;
 
 import lombok.Getter;
 import lombok.Setter;
