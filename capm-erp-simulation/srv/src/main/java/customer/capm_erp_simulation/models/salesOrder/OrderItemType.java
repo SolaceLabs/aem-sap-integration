@@ -15,6 +15,7 @@ public class OrderItemType {
     private String material;
     private String materialType;
     private String itemType;
+    private String itemDescription;
     private List<OrderScheduleType> orderSchedule;
 
 }
