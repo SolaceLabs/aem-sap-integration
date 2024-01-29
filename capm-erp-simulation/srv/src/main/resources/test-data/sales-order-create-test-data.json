@@ -10,6 +10,8 @@
         "salesOrg": "SA01",
         "distributionChannel": "DC01",
         "division": "DV01",
+        "netvalue": 1960.00,
+        "currency": "USD",
         "customer": [
           {
             "customerId": "CUST001",
@@ -18,7 +20,12 @@
             "street": "Main Street",
             "phone": "555-123-4567",
             "country": "USA",
-            "city": "New York"
+            "city": "New York",
+            "emailAddress": [
+              {
+                "email": "john.doe@abccorp.com"
+              }
+            ]
           }
         ],
         "orderItem": [
@@ -50,6 +57,8 @@
         "salesOrg": "SA02",
         "distributionChannel": "DC02",
         "division": "DV02",
+        "netvalue": 2061.00,
+        "currency": "USD",
         "customer": [
           {
             "customerId": "CUST002",
@@ -58,7 +67,12 @@
             "street": "First Avenue",
             "phone": "555-987-6543",
             "country": "USA",
-            "city": "Los Angeles"
+            "city": "Los Angeles",
+            "emailAddress": [
+              {
+                "email": "jane.smith@xyzltd.com"
+              }
+            ]
           }
         ],
         "orderItem": [
@@ -90,6 +104,8 @@
         "salesOrg": "SA03",
         "distributionChannel": "DC01",
         "division": "DV03",
+        "netvalue": 1882.28,
+        "currency": "USD",
         "customer": [
           {
             "customerId": "CUST003",
@@ -98,7 +114,12 @@
             "street": "Second Street",
             "phone": "555-555-5555",
             "country": "USA",
-            "city": "Chicago"
+            "city": "Chicago",
+            "emailAddress": [
+              {
+                "email": "Robert.Johnson@123corp.com"
+              }
+            ]
           }
         ],
         "orderItem": [
@@ -143,6 +164,8 @@
         "salesOrg": "SA01",
         "distributionChannel": "DC02",
         "division": "DV02",
+        "netvalue": 9092.23,
+        "currency": "USD",
         "customer": [
           {
             "customerId": "CUST004",
@@ -151,7 +174,12 @@
             "street": "Third Avenue",
             "phone": "555-111-2222",
             "country": "USA",
-            "city": "San Francisco"
+            "city": "San Francisco",
+            "emailAddress": [
+              {
+                "email": "Alice.Brown@xyzcorp.com"
+              }
+            ]
           }
         ],
         "orderItem": [
@@ -196,6 +224,8 @@
         "salesOrg": "SA03",
         "distributionChannel": "DC02",
         "division": "DV03",
+        "netvalue": 8798.18,
+        "currency": "EUR",
         "customer": [
           {
             "customerId": "CUST005",
@@ -204,7 +234,12 @@
             "street": "Fourth Street",
             "phone": "555-444-3333",
             "country": "USA",
-            "city": "Seattle"
+            "city": "Seattle",
+            "emailAddress": [
+              {
+                "email": "Mary.Johnson@456ltd.com"
+              }
+            ]
           }
         ],
         "orderItem": [
@@ -249,6 +284,8 @@
         "salesOrg": "SA02",
         "distributionChannel": "DC01",
         "division": "DV01",
+        "netvalue": 9082.23,
+        "currency": "EUR",
         "customer": [
           {
             "customerId": "CUST006",
@@ -257,7 +294,12 @@
             "street": "Fifth Avenue",
             "phone": "555-666-7777",
             "country": "USA",
-            "city": "Dallas"
+            "city": "Dallas",
+            "emailAddress": [
+              {
+                "email": "Chris.Lee@789corp.com"
+              }
+            ]
           }
         ],
         "orderItem": [
@@ -302,6 +344,8 @@
         "salesOrg": "SA01",
         "distributionChannel": "DC02",
         "division": "DV03",
+        "netvalue": 7888.98,
+        "currency": "USD",
         "customer": [
           {
             "customerId": "CUST007",
@@ -310,7 +354,12 @@
             "street": "Sixth Street",
             "phone": "555-222-3333",
             "country": "USA",
-            "city": "Atlanta"
+            "city": "Atlanta",
+            "emailAddress": [
+              {
+                "email": "Alice.Brown@101corp.com"
+              }
+            ]
           }
         ],
         "orderItem": [
@@ -355,6 +404,8 @@
         "salesOrg": "SA03",
         "distributionChannel": "DC01",
         "division": "DV02",
+        "netvalue": 45456.67,
+        "currency": "CAD",
         "customer": [
           {
             "customerId": "CUST008",
@@ -363,7 +414,12 @@
             "street": "Seventh Avenue",
             "phone": "555-888-9999",
             "country": "USA",
-            "city": "Houston"
+            "city": "Houston",
+            "emailAddress": [
+              {
+                "email": "John.Doe@2020ltd.com"
+              }
+            ]
           }
         ],
         "orderItem": [
@@ -395,6 +451,8 @@
         "salesOrg": "SA01",
         "distributionChannel": "DC02",
         "division": "DV03",
+        "netvalue": 78663.18,
+        "currency": "CAD",
         "customer": [
           {
             "customerId": "CUST009",
@@ -403,7 +461,12 @@
             "street": "Eighth Street",
             "phone": "555-777-8888",
             "country": "USA",
-            "city": "Miami"
+            "city": "Miami",
+            "emailAddress": [
+              {
+                "email": "Jane.Smith@987corp.com"
+              }
+            ]
           }
         ],
         "orderItem": [
@@ -448,6 +511,8 @@
         "salesOrg": "SA02",
         "distributionChannel": "DC01",
         "division": "DV01",
+        "netvalue": 123123.45,
+        "currency": "GBP",
         "customer": [
           {
             "customerId": "CUST010",
@@ -456,7 +521,12 @@
             "street": "Ninth Avenue",
             "phone": "555-999-0000",
             "country": "USA",
-            "city": "Las Vegas"
+            "city": "Las Vegas",
+            "emailAddress": [
+              {
+                "email": "Robert.Johnson@xyzcorp.com"
+              }
+            ]
           }
         ],
         "orderItem": [

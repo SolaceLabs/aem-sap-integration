@@ -2,6 +2,8 @@ package customer.capm_erp_simulation.models.salesOrder;
 
 import lombok.*;
 
+import java.util.List;
+
 @Data
 @Getter
 @Setter
@@ -15,4 +17,5 @@ public class CustomerType {
     private String phone;
     private String country;
     private String city;
+    private List<EmailAddress> emailAddress;
 }
