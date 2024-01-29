@@ -15,7 +15,7 @@ public class OrderHeaderType {
 
     private String salesOrderNumber;
     private String creator;
-    private Date date;
+    private String date;
     private String salesType;
     private String ordertype;
     private String salesOrg;
