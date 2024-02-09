@@ -1,0 +1,214 @@
+{
+    "$schema": http://json-schema.org/draft-07/schema#,
+    "type": "object",
+    "properties": {
+        "Queues": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "owner": {
+                        "type": "string"
+                    },
+                    "dmq": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "redelivery": {
+                        "type": "boolean"
+                    },
+                    "try-forever": {
+                        "type": "boolean"
+                    },
+                    "max-redelivery-count": {
+                        "type": "integer"
+                    },
+                    "subscriptions": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "required": [
+                    "name",
+                    "owner",
+                    "subscriptions"
+                ]
+            }
+        },
+        "RDPs": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "enabled": {
+                        "type": "boolean"
+                    },
+                    "consumer-name": {
+                        "type": "string"
+                    },
+                    "remost-host": {
+                        "type": "string"
+                    },
+                    "remort-port": {
+                        "type": "integer"
+                    },
+                    "tls-enabled": {
+                        "type": "boolean"
+                    },
+                    "auth-scheme": {
+                        "type": "string"
+                    },
+                    "client-id": {
+                        "type": "string"
+                    },
+                    "client-secret": {
+                        "type": "string"
+                    },
+                    "token-endpoint-url": {
+                        "type": "string"
+                    },
+                    "cons-enabled": {
+                        "type": "boolean"
+                    },
+                    "post-request-target": {
+                        "type": "string"
+                    },
+                    "header-content-type": {
+                        "type": "string"
+                    },
+                    "queue-binding-name": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "name",
+                    "enabled",
+                    "consumer-name",
+                    "remost-host",
+                    "remort-port",
+                    "tls-enabled",
+                    "auth-scheme",
+                    "client-id",
+                    "client-secret",
+                    "token-endpoint-url",
+                    "cons-enabled",
+                    "post-request-target",
+                    "header-content-type",
+                    "queue-binding-name"
+                ]
+            }
+        }
+    },
+    "ClientUsername": {
+        "type": "array",
+        "items": [
+            {
+                "type": "object",
+                "required": ["name", "password"],
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "enabled": {
+                        "type": "boolean"
+                    },
+                    "password": {
+                        "type": "string"
+                    },
+                    "acl-profile": {
+                        "type": "string"
+                    },
+                    "client-profile": {
+                        "type": "integer"
+                    }
+                }
+            }
+        ]
+    },
+    "AclProfiles": {
+        "type": "array",
+        "items": [
+            {
+                "type": "object",
+                "required": ["name",
+                                  "publish-topic-default-action",
+                                  "subscribe-topic-default-action",
+                                  "client-connect-default-action",
+                                  "subscribe-share-name-default-action"],
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "publish-topic-default-action": {
+                        "type": "string"
+                    },
+                    "subscribe-topic-default-action": {
+                        "type": "string"
+                    },
+                    "client-connect-default-action": {
+                        "type": "string"
+                    },
+                    "subscribe-share-name-default-action": {
+                        "type": "string"
+                    },
+                    "publish-exceptions": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "subscribe-exceptions": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "subscribe-share-name-exceptions": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "client-connect-exceptions": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "anyOf": [
+        {
+               "required": [
+                        "Queues"
+                    ]
+                },
+                {
+                    "required": [
+                        "RDPs"
+                    ]
+                },
+                {
+                    "required": [
+                        "AclProfiles"
+                    ]
+                },
+                {
+                    "required": [
+                        "ClientUsername"
+                    ]
+                }
+    ]
+}
