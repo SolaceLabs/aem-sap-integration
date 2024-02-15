@@ -1,0 +1,62 @@
+{
+    "Queues": [
+        {
+            "name": "CIBusinessPartnerChecker",
+            "type": "exclusive",
+            "owner": "solace-cloud-client",
+            "dmq": "CIBusinessPartnerCheckerDMQ",
+            "redelivery": true,
+            "try-forever": false,
+            "max-redelivery-count": 3,
+            "subscriptions": [
+                "sap.com/businesspartner/create/V1/>",
+                "sap.com/businesspartner/change/V1/>"
+            ]
+        },
+        {
+            "name": "CIBusinessPartnerCheckerDMQ",
+            "type": "exclusive",
+            "owner": "solace-cloud-client",
+            "redelivery": false,
+            "subscriptions": [
+                "sap.com/businesspartner/addressCheckeFailed/>"
+            ]
+         },
+        {
+            "name": "CIBusinessPartnerChecked",
+            "type": "exclusive",
+            "owner": "solace-cloud-client",
+            "subscriptions": [
+                "sap.com/businesspartner/addressChecked/V1/>",
+                "!sap.com/businesspartner/addressChecked/*/*/Invalid"
+            ]
+        },
+        {
+            "name": "CIBusinessPartnerCheckedInvalid",
+            "type": "exclusive",
+            "owner": "solace-cloud-client",
+            "subscriptions": [
+                "sap.com/businesspartner/addressChecked/V1/*/*/invalid"
+            ]
+        },
+        {
+            "name": "CISalesOrderNotification",
+            "type": "exclusive",
+            "owner": "solace-cloud-client",
+            "redelivery": true,
+            "try-forever": false,
+            "max-redelivery-count": 3,
+            "subscriptions": [
+                "sap.com/salesorder/create/V1/>"
+            ]
+        },
+        {
+            "name": "CISalesOrderNotificationProcessed",
+            "type": "exclusive",
+            "owner": "solace-cloud-client",
+            "subscriptions": [
+                "sap.com/salesorder/notified/V1/>"
+            ]
+        }
+    ]
+}
