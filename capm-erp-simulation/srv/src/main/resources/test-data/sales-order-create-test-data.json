@@ -10,7 +10,7 @@
         "salesOrg": "SA01",
         "distributionChannel": "DC01",
         "division": "DV01",
-        "netvalue": 1960.00,
+        "netvalue": 375.00,
         "currency": "USD",
         "customer": [
           {
@@ -34,6 +34,7 @@
             "material": "MAT001",
             "materialType": "Product",
             "itemType": "Standard",
+            "itemDescription": "Rocky Ridge Mountain bike",
             "orderSchedule": [
               {
                 "scheduleNumber": "SCH001",
@@ -57,7 +58,7 @@
         "salesOrg": "SA02",
         "distributionChannel": "DC02",
         "division": "DV02",
-        "netvalue": 2061.00,
+        "netvalue": 450.00,
         "currency": "USD",
         "customer": [
           {
@@ -81,6 +82,7 @@
             "material": "MAT002",
             "materialType": "Service",
             "itemType": "Premium",
+            "itemDescription": "Summit Mountain bike",
             "orderSchedule": [
               {
                 "scheduleNumber": "SCH002",
@@ -104,7 +106,7 @@
         "salesOrg": "SA03",
         "distributionChannel": "DC01",
         "division": "DV03",
-        "netvalue": 1882.28,
+        "netvalue": 500.00,
         "currency": "USD",
         "customer": [
           {
@@ -128,6 +130,7 @@
             "material": "MAT003",
             "materialType": "Product",
             "itemType": "Standard",
+            "itemDescription": "Trailblazer Mountain bike",
             "orderSchedule": [
               {
                 "scheduleNumber": "SCH003",
@@ -141,6 +144,7 @@
             "material": "MAT004",
             "materialType": "Product",
             "itemType": "Standard",
+            "itemDescription": "Summit Mountain bike",
             "orderSchedule": [
               {
                 "scheduleNumber": "SCH004",
@@ -164,7 +168,7 @@
         "salesOrg": "SA01",
         "distributionChannel": "DC02",
         "division": "DV02",
-        "netvalue": 9092.23,
+        "netvalue": 475.59,
         "currency": "USD",
         "customer": [
           {
@@ -188,6 +192,7 @@
             "material": "MAT005",
             "materialType": "Product",
             "itemType": "Standard",
+            "itemDescription": "Velocity Sports bike",
             "orderSchedule": [
               {
                 "scheduleNumber": "SCH005",
@@ -201,6 +206,7 @@
             "material": "MAT006",
             "materialType": "Product",
             "itemType": "Standard",
+            "itemDescription": "Razor Sports bike",
             "orderSchedule": [
               {
                 "scheduleNumber": "SCH006",
@@ -224,7 +230,7 @@
         "salesOrg": "SA03",
         "distributionChannel": "DC02",
         "division": "DV03",
-        "netvalue": 8798.18,
+        "netvalue": 290.18,
         "currency": "EUR",
         "customer": [
           {
@@ -248,6 +254,7 @@
             "material": "MAT007",
             "materialType": "Product",
             "itemType": "Standard",
+            "itemDescription": "Razor Sports bike",
             "orderSchedule": [
               {
                 "scheduleNumber": "SCH007",
@@ -261,6 +268,7 @@
             "material": "MAT008",
             "materialType": "Service",
             "itemType": "Premium",
+            "itemDescription": "Volt Electric bike",
             "orderSchedule": [
               {
                 "scheduleNumber": "SCH008",
@@ -284,7 +292,7 @@
         "salesOrg": "SA02",
         "distributionChannel": "DC01",
         "division": "DV01",
-        "netvalue": 9082.23,
+        "netvalue": 499.23,
         "currency": "EUR",
         "customer": [
           {
@@ -308,6 +316,7 @@
             "material": "MAT009",
             "materialType": "Product",
             "itemType": "Standard",
+            "itemDescription": "Zenith Sports bike",
             "orderSchedule": [
               {
                 "scheduleNumber": "SCH009",
@@ -321,6 +330,7 @@
             "material": "MAT010",
             "materialType": "Product",
             "itemType": "Standard",
+            "itemDescription": "Summit Mountain bike",
             "orderSchedule": [
               {
                 "scheduleNumber": "SCH010",
@@ -344,7 +354,7 @@
         "salesOrg": "SA01",
         "distributionChannel": "DC02",
         "division": "DV03",
-        "netvalue": 7888.98,
+        "netvalue": 399.00,
         "currency": "USD",
         "customer": [
           {
@@ -368,6 +378,7 @@
             "material": "MAT011",
             "materialType": "Product",
             "itemType": "Standard",
+            "itemDescription": "EcoRide Electric bike",
             "orderSchedule": [
               {
                 "scheduleNumber": "SCH011",
@@ -381,6 +392,7 @@
             "material": "MAT012",
             "materialType": "Service",
             "itemType": "Premium",
+            "itemDescription": "Rocky Ridge Mountain bike",
             "orderSchedule": [
               {
                 "scheduleNumber": "SCH012",
@@ -404,7 +416,7 @@
         "salesOrg": "SA03",
         "distributionChannel": "DC01",
         "division": "DV02",
-        "netvalue": 45456.67,
+        "netvalue": 199.98,
         "currency": "CAD",
         "customer": [
           {
@@ -428,6 +440,7 @@
             "material": "MAT013",
             "materialType": "Product",
             "itemType": "Standard",
+            "itemDescription": "Spark Electric bike",
             "orderSchedule": [
               {
                 "scheduleNumber": "SCH013",
@@ -451,7 +464,7 @@
         "salesOrg": "SA01",
         "distributionChannel": "DC02",
         "division": "DV03",
-        "netvalue": 78663.18,
+        "netvalue": 489.60,
         "currency": "CAD",
         "customer": [
           {
@@ -475,6 +488,7 @@
             "material": "MAT014",
             "materialType": "Product",
             "itemType": "Standard",
+            "itemDescription": "Volt Electric bike",
             "orderSchedule": [
               {
                 "scheduleNumber": "SCH014",
@@ -488,6 +502,7 @@
             "material": "MAT015",
             "materialType": "Product",
             "itemType": "Standard",
+            "itemDescription": "Trailblazer Mountain bike",
             "orderSchedule": [
               {
                 "scheduleNumber": "SCH015",
@@ -511,7 +526,7 @@
         "salesOrg": "SA02",
         "distributionChannel": "DC01",
         "division": "DV01",
-        "netvalue": 123123.45,
+        "netvalue": 475.00,
         "currency": "GBP",
         "customer": [
           {
@@ -535,6 +550,7 @@
             "material": "MAT016",
             "materialType": "Product",
             "itemType": "Standard",
+            "itemDescription": "Sharpe Electric bike",
             "orderSchedule": [
               {
                 "scheduleNumber": "SCH016",
