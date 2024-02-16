@@ -17,8 +17,11 @@
             "name": "CIBusinessPartnerCheckerDMQ",
             "type": "exclusive",
             "owner": "solace-cloud-client",
-            "redelivery": false
-        },
+            "redelivery": false,
+            "subscriptions": [
+                "sap.com/businesspartner/addressCheckeFailed/>"
+            ]
+         },
         {
             "name": "CIBusinessPartnerChecked",
             "type": "exclusive",
