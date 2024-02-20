@@ -9,8 +9,6 @@
             "try-forever": false,
             "max-redelivery-count": 3,
             "subscriptions": [
-                "sap.com/businesspartner/create/V1/>",
-                "sap.com/businesspartner/change/V1/>"
             ]
         },
         {
