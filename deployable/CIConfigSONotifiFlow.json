@@ -1,0 +1,23 @@
+{
+	"Queues": [
+		{
+			"name": "CISalesOrderNotification",
+			"type": "exclusive",
+			"owner": "solace-cloud-client",
+			"redelivery": true,
+			"try-forever": false,
+			"max-redelivery-count": 3,
+			"subscriptions": [
+				"sap.com/salesorder/create/V1/>"
+			]
+		},
+		{
+			"name": "CISalesOrderNotificationProcessed",
+			"type": "exclusive",
+			"owner": "solace-cloud-client",
+			"subscriptions": [
+				"sap.com/salesorder/notified/V1/>"
+			]
+		}
+	]
+}
