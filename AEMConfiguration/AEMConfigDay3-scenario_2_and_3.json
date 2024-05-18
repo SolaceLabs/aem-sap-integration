@@ -56,6 +56,16 @@
             "subscriptions": [
                 "sap.com/salesorder/notified/V1/>"
             ]
+        },
+        {
+            "name": "FFSalesOrders",
+            "type": "exclusive",
+            "owner": "solace-cloud-client",
+            "redelivery": true,
+            "try-forever": true,
+            "subscriptions": [
+				"sap.com/salesorder/create/V1/>"
+            ]
         }
     ]
 }
