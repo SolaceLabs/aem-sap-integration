@@ -58,7 +58,7 @@
             ]
         },
         {
-            "name": "FFSalesOrders",
+            "name": "FFSalesOrder",
             "type": "exclusive",
             "owner": "solace-cloud-client",
             "redelivery": true,
