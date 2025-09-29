@@ -1,0 +1,1 @@
+{"destination":{"Type":"HTTP","sap.applicationdevelopment.actions.enabled":"true","Description":"Rest Endpoint for AEM Broker","User":"solace-cloud-client","sap.processautomation.enabled":"true","Authentication":"BasicAuthentication","ProxyType":"Internet","URL":"<<<Copy Your broker URL here>>>","Name":"RPPv2_AEM_REST","Password":"<<<Copy Your broker password here>>>"}}
